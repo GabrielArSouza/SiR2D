@@ -23,3 +23,8 @@ bool Color::operator== (const Color & rhs)
 		
 	return true;
 }
+
+Color::~Color(){}
+
+color_t * Color::get_color_value ()
+{ return channels; }

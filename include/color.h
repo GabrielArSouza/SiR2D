@@ -4,15 +4,15 @@
 	/**
 	 * Type of a color channel
 	 */
-	typedef unsigned char color_t;
+	typedef unsigned int color_t;
 
 	/**
 	 * @brief      Identifies each color channel. 
 	 */
 	enum channel_e : color_t {
-		R = 0, //<! Red
-		G = 1, //<! Green
-		B = 2, //<! Blue
+		r = 0, //<! Red
+		g = 1, //<! Green
+		b = 2, //<! Blue
 	};
 
 	class Color {
@@ -62,6 +62,8 @@
 			 */
 			bool operator== (const Color & rhs);
 	
+	
+			color_t * get_color_value ();
 	};
 
 #endif
