@@ -2,6 +2,7 @@
 #define _OBJECT_H_
 
 #include "color.h"
+#include "point.h"
 
 class Object {
 
@@ -35,13 +36,13 @@ public:
 	 * Getters and Setters
 	 */
 
-	Color get_color ();
+	Color* get_color ();
 
 	void set_color (Color *color);
 
-	Color get_color_fill ();
+	Color* get_color_fill ();
 
-	void set_color_fill (Color *color);
+	void set_color_fill (Color *color_fill);
 
 };
 
