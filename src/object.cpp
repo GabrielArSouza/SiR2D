@@ -6,6 +6,8 @@ Object::Object ( Color *color, Color *color_fill)
 	this->color_fill = color_fill;
 }
 
+Object::~Object (){}
+
 Color* Object::get_color ()
 { return this->color; }
 

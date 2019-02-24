@@ -2,9 +2,21 @@
 
 Line::Line (Point *p1, Point *p2, Color *color, Color *color_fill) : Object(color, color_fill)
 {
-	this->p1 = p1;
-	this->p2 = p2;
+	try {
+        if (p1->get_x_axis() > p2->get_x_axis()) {
+            throw 1;
+        } else {            
+			this->p1 = p1;
+			this->p2 = p2;
+        }
+    } catch(int erro) {
+        if (erro == 1) {
+            std::cout << "Invalid Line declaration..." << std::endl;
+        }
+    }
 }
+
+Line::~Line (){}
 
 Point* Line::get_p1 ()
 { return this->p1; }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "color.h"
 #include "common.h"
+#include "line.h"
 
 class Canvas {
 
@@ -52,6 +53,23 @@ public:
 	 * @brief      clear the Canvas
 	 */
 	void clear ();
+
+	/**
+	 * @brief      draw a line in canvas
+	 *
+	 * @param[in]  line  The line
+	 */
+	void draw (Line * line, Color * color);
+
+
+	/**
+	 * @brief      add a color in a pixel
+	 *
+	 * @param[in]  x_axis  The x axis of a pixel
+	 * @param[in]  y_axis  The y axis of a pixel
+	 * @param      color   The pixel color 
+	 */
+	void color_pixel (int x_axis, int y_axis, Color *color);
 
 	/**
 	 * @brief      Gets the image.

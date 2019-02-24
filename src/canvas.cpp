@@ -41,6 +41,86 @@ void Canvas::clear ()
 	}
 }
 
+/**
+ * Main functions
+ */
+
+void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
+{
+	/**
+	 * A imagem está armazena sequenciamente em um grande array
+	 * de unsigned char. A ordem de inserção no array é linha por 
+	 * linha. Cada pixel possui uma quantidade de valores definida
+	 * na constante VALUES_PER_PIXEL. A expressão abaixo define a
+	 * quantidade de caracteres necessários para representar uma 
+	 * linha da imagem.
+	 */
+	int line_size = this->m_width * VALUES_PER_PIXEL;
+
+
+	/**
+	 * Com o valor do eixo x do pixel podemos encontrar a possição
+	 * do array em que a linha onde o pixel se encontra começa. Como
+	 * a representação do array começa em 0 é necessário diminuir 1
+	 * do valor de x_axis recebido. A expressão abaixo encontra o 
+	 * início da linha onde opixel está.
+	 */
+	int init_line_of_pixel = (x_axis - 1) * line_size;
+
+
+	/**
+	 * Seguindo a lógica para encontrar o início da linha, agora 
+	 * é necessário encontrar a posição onde começa o pixel. A 
+	 * expressão abaixo realiza este cálculo.
+	 */
+	int init_pixel = init_line_of_pixel + (y_axis-1) * VALUES_PER_PIXEL ;
+
+	// Get a pixel color
+	color_t * color_index = color->get_color_value();
+
+	for (int i=0; i < VALUES_PER_PIXEL; i++)
+		this->image[init_pixel+i] = color_index[i];
+
+}
+
+void Canvas::draw (Line * line, Color * color)
+{
+
+	int xa, xb, ya, yb;
+
+	xa = line->get_p1()->get_x_axis();
+	xb = line->get_p2()->get_x_axis();
+
+	ya = line->get_p1()->get_y_axis();
+	yb = line->get_p2()->get_y_axis();
+
+	int delta_x = xb - xa;
+	int delta_y = yb - ya;
+
+	int pk = 2 * delta_y - delta_x;
+	
+	this->color_pixel(xa, ya, color);
+
+	for ((xa+1); xa <= xb; xa++ )
+	{
+		if (pk < 0) 
+			pk = pk + 2 * delta_y;
+		else 
+		{
+			ya = ya+1;
+			pk = pk + 2* delta_y - 2*delta_x;
+		}
+		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
+		this->color_pixel(xa, ya, color);
+	}
+}
+
+
+
+/**
+ * Getters and Setters 
+ */
+
 color_t * Canvas::get_image ()
 { return this->image; }
 
