@@ -6,6 +6,8 @@ Point::Point (int x_axis, int y_axis)
 	this->y_axis = y_axis;
 }
 
+Point::~Point(){}
+
 int Point::get_x_axis ()
 { return this->x_axis; }
 

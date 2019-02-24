@@ -2,7 +2,6 @@
 #define _RASTER_H_
 
 #include "canvas.h"
-// #include <string>
 #include <fstream>
 #include <iostream>
 

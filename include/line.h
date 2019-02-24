@@ -2,7 +2,7 @@
 #define _LINE_H_
 
 #include "object.h"
-
+#include <iostream>
 class Line : public Object {
 
 private:
@@ -22,9 +22,9 @@ public:
 	Line (Point *p1, Point *p2, Color *color, Color *color_fill);
 
 	/**
-	 * @brief      draw a line in a canvas
+	 * @brief      Destroys the object.
 	 */
-	void draw ();
+	~Line ();
 
 	/**
 	 * Getters and Setters
