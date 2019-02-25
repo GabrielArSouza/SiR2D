@@ -1,2 +1,2 @@
-# SiRe2
-Simple Remasterizer 2D
+# SiR2
+Simple Raster 2D
