@@ -63,7 +63,7 @@ void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 	 * do array em que a linha onde o pixel se encontra começa. Como
 	 * a representação do array começa em 0 é necessário diminuir 1
 	 * do valor de x_axis recebido. A expressão abaixo encontra o 
-	 * início da linha onde opixel está.
+	 * início da linha onde o pixel está.
 	 */
 	int init_line_of_pixel = (x_axis - 1) * line_size;
 
@@ -110,7 +110,7 @@ void Canvas::draw (Line * line, Color * color)
 			ya = ya+1;
 			pk = pk + 2* delta_y - 2*delta_x;
 		}
-		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
+		//std::cout << "print a pixel (" << xa << "," << ya << ")\n";
 		this->color_pixel(xa, ya, color);
 	}
 }
