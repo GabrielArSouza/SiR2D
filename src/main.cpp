@@ -22,9 +22,10 @@ int main ()
 
 	Line line = Line(&p1, &p2, &color, &color);
 	Line line2 = Line (&p3, &p4, &color, &color);
+	Line line3 = Line (&p1, &p4, &color, &color);	
 
 	canvas.draw(&line, &color);
-	canvas.draw(&line2, &color);
+	canvas.draw(&line3, &color);
 
 	Raster raster = Raster (&canvas, filename);
 	raster.draw();
