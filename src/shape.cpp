@@ -8,6 +8,11 @@ Shape::Shape ( Color *color, Color *color_fill)
 
 Shape::~Shape (){}
 
+std::vector<POINT> Shape::draw(){
+	std::vector<POINT> p = {{1,1}};
+	return p;
+}
+
 Color* Shape::get_color ()
 { return this->color; }
 

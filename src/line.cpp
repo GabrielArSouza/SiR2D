@@ -19,6 +19,49 @@ Line::Line (POINT *p1, POINT *p2,
 
 Line::~Line (){}
 
+/**
+ * Principal methods
+ */
+
+std::vector<POINT> Line::draw ()
+{
+    std::cout << "chamou";
+    std::vector<POINT> pixels;
+    int xa, xb, ya, yb;
+
+	xa = this->p1->x;
+	xb = this->p2->x;
+
+	ya = this->p1->y;
+	yb = this->p2->y;
+
+	int delta_x = xb - xa;
+	int delta_y = yb - ya;
+
+	int pk = 2 * delta_y - delta_x;
+	
+	pixels.push_back(POINT {xa, ya});
+
+	for ((xa+1); xa <= xb; xa++ )
+	{
+		if (pk < 0) 
+			pk = pk + 2 * delta_y;
+		else 
+		{
+			ya = ya+1;
+			pk = pk + 2* delta_y - 2*delta_x;
+		}
+		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
+		pixels.push_back(POINT {xa, ya});
+	}
+
+    return pixels;
+}
+
+/**
+ * Getters and Setters 
+ */
+
 POINT* Line::get_p1 ()
 { return this->p1; }
 

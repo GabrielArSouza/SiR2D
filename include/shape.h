@@ -4,9 +4,11 @@
 #include "color.h"
 #include "common.h"
 
+#include <vector>
+
 class Shape {
 
-private:
+protected:
 
 	Color *color; 
 
@@ -30,7 +32,7 @@ public:
 	/**
 	 * @brief      draw a Shape in a canvas
 	 */
-	void draw ();
+	virtual std::vector<POINT> draw ();
 
 	/**
 	 * Getters and Setters

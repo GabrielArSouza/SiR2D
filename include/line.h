@@ -3,6 +3,7 @@
 
 #include "shape.h"
 #include "common.h"
+
 #include <iostream>
 class Line : public Shape {
 
@@ -26,7 +27,12 @@ public:
 	 */
 	~Line ();
 
-	// void draw (Cancas);
+	/**
+	 * @brief draw a line on canvas
+	 * 
+	 * @param canvas the canvas
+	 */
+	std::vector<POINT> draw ();
 
 	/**
 	 * Getters and Setters

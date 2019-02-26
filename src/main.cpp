@@ -3,6 +3,7 @@
 #include <string>
 
 #include "raster.h"
+#include "line.h"
 
 int main ()
 {
@@ -22,14 +23,21 @@ int main ()
 	POINT p6 = {100,189};
 
 	Line line1 = Line(&p1, &p2, &color, &color);
+	canvas.add_new_shape(&line1);
+
 	Line line2 = Line(&p1, &p3, &color, &color); 
+	canvas.add_new_shape(&line2);
+
 	Line line3 = Line (&p1, &p4, &color, &color);	
+	canvas.add_new_shape(&line3);
+
 	Line line4 = Line (&p3, &p4, &color, &color);
+	canvas.add_new_shape(&line4);
+	
 	Line line5 = Line (&p5, &p6, &color, &color);
-	//canvas.draw(&line1, &color);
-	canvas.draw(&line2, &color);
-	//canvas.draw(&line3, &color);
-	canvas.draw(&line5, &color);
+	canvas.add_new_shape(&line5);
+	
+	canvas.draw();
 
 	Raster raster = Raster (&canvas, filename);
 	raster.draw();

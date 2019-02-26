@@ -45,6 +45,24 @@ void Canvas::clear ()
  * Main functions
  */
 
+void Canvas::add_new_shape (Shape *shape)
+{ this->shapes.push_back(*shape);}
+
+void Canvas::draw ()
+{
+	std::vector<POINT> temp;
+
+	for (unsigned int i=0; i < this->shapes.size(); i++)
+	{
+		temp = shapes[i].draw();
+		for (unsigned int j=0; j < temp.size(); j++)
+			this->color_pixel(temp[j], shapes[i].get_color());
+	}
+}
+
+void Canvas::color_pixel (POINT x, Color *color)
+{ this->color_pixel(x.x, x.y, color); }
+
 void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 {
 	/**
@@ -82,40 +100,6 @@ void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 		this->image[init_pixel+i] = color_index[i];
 
 }
-
-void Canvas::draw (Line * line, Color * color)
-{
-
-	int xa, xb, ya, yb;
-
-	xa = line->get_p1()->x;
-	xb = line->get_p2()->x;
-
-	ya = line->get_p1()->y;
-	yb = line->get_p2()->y;
-
-	int delta_x = xb - xa;
-	int delta_y = yb - ya;
-
-	int pk = 2 * delta_y - delta_x;
-	
-	this->color_pixel(xa, ya, color);
-
-	for ((xa+1); xa <= xb; xa++ )
-	{
-		if (pk < 0) 
-			pk = pk + 2 * delta_y;
-		else 
-		{
-			ya = ya+1;
-			pk = pk + 2* delta_y - 2*delta_x;
-		}
-		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
-		this->color_pixel(xa, ya, color);
-	}
-}
-
-
 
 /**
  * Getters and Setters 
