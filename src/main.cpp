@@ -14,19 +14,22 @@ int main ()
 	Color color = Color(4,255,4);
 	
 	// create a line
-	Point p1 = Point (10, 10);
-	Point p2 = Point (189, 189);
-	Point p3 = Point(10,189);
-	Point p4 = Point(189,10);
+	POINT p1 = {10, 10};
+	POINT p2 = {189, 189};
+	POINT p3 = {10,189};
+	POINT p4 = {189,10};
+	POINT p5 = {100,10};
+	POINT p6 = {100,189};
 
 	Line line1 = Line(&p1, &p2, &color, &color);
 	Line line2 = Line(&p1, &p3, &color, &color); 
 	Line line3 = Line (&p1, &p4, &color, &color);	
 	Line line4 = Line (&p3, &p4, &color, &color);
-
-	canvas.draw(&line1, &color);
+	Line line5 = Line (&p5, &p6, &color, &color);
+	//canvas.draw(&line1, &color);
 	canvas.draw(&line2, &color);
-	// canvas.draw(&line3, &color);
+	//canvas.draw(&line3, &color);
+	canvas.draw(&line5, &color);
 
 	Raster raster = Raster (&canvas, filename);
 	raster.draw();

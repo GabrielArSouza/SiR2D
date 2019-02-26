@@ -7,4 +7,19 @@
 #define OUTPUT_EXTENSION ".ppm"
 #define OUTPUT_INDEX "P3"
 
+typedef struct POINT {
+    
+    int x,y;
+
+    bool operator== (POINT &rhs)
+    {
+        if ((x == rhs.x) && (y == rhs.y))
+            return true;
+        return false;
+    }
+    void operator= (POINT &rhs)
+    { x = rhs.x; y = rhs.y; }
+
+} POINT;
+
 #endif

@@ -88,11 +88,11 @@ void Canvas::draw (Line * line, Color * color)
 
 	int xa, xb, ya, yb;
 
-	xa = line->get_p1()->get_x_axis();
-	xb = line->get_p2()->get_x_axis();
+	xa = line->get_p1()->x;
+	xb = line->get_p2()->x;
 
-	ya = line->get_p1()->get_y_axis();
-	yb = line->get_p2()->get_y_axis();
+	ya = line->get_p1()->y;
+	yb = line->get_p2()->y;
 
 	int delta_x = xb - xa;
 	int delta_y = yb - ya;
@@ -110,7 +110,7 @@ void Canvas::draw (Line * line, Color * color)
 			ya = ya+1;
 			pk = pk + 2* delta_y - 2*delta_x;
 		}
-		//std::cout << "print a pixel (" << xa << "," << ya << ")\n";
+		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
 		this->color_pixel(xa, ya, color);
 	}
 }

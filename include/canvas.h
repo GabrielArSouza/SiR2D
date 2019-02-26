@@ -2,21 +2,21 @@
 #define _CANVAS_H_
 
 #include <iostream>
+
 #include "color.h"
 #include "common.h"
 #include "line.h"
+#include "shape.h"
 
 class Canvas {
 
 private:
 	
 	unsigned int m_width;
-	
 	unsigned int m_heigth;
-
 	Color * m_bkg_color;
-
 	color_t * image;
+	Shape * shapes;
 
 public:
 
