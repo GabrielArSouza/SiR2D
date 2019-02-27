@@ -15,28 +15,33 @@ int main ()
 	Color color = Color(4,255,4);
 	
 	// create a line
-	POINT p1 = {10, 10};
-	POINT p2 = {189, 189};
-	POINT p3 = {10,189};
-	POINT p4 = {189,10};
-	POINT p5 = {100,10};
-	POINT p6 = {100,189};
+	POINT p1 = {20, 20};
+	POINT p2 = {20, 180};
+	POINT p3 = {180, 20};
+	POINT p4 = {180, 180};
+	POINT p5 = {100, 100};
 
-	Line line1 = Line(&p1, &p2, &color, &color);
+	Line line1 = Line(&p1, &p2, BLACK);
 	canvas.add_new_shape(&line1);
 
-	Line line2 = Line(&p1, &p3, &color, &color); 
+	Line line2 = Line (&p1, &p3, &color, &color);	
 	canvas.add_new_shape(&line2);
 
-	Line line3 = Line (&p1, &p4, &color, &color);	
+	Line line3 = Line (&p1, &p5, &color, &color);
 	canvas.add_new_shape(&line3);
 
-	Line line4 = Line (&p3, &p4, &color, &color);
+	Line line4 = Line (&p5, &p4, &color, &color);
 	canvas.add_new_shape(&line4);
-	
-	Line line5 = Line (&p5, &p6, &color, &color);
+
+	Line line5 = Line (&p3, &p2, &color, &color);
 	canvas.add_new_shape(&line5);
 	
+	Line line6 = Line (&p2, &p4, &color, &color);
+	canvas.add_new_shape(&line6);
+
+	Line line7 = Line (&p3, &p4, &color, &color);
+	canvas.add_new_shape(&line7);
+
 	canvas.draw();
 
 	Raster raster = Raster (&canvas, filename);

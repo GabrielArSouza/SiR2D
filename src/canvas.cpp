@@ -6,9 +6,7 @@ Canvas::Canvas (unsigned int m_width, unsigned int m_heigth)
 	this->m_heigth = m_heigth;
 	
 	// create a default background color
-	Color bkg_color = Color(255, 
-							255,
-							255);
+	Color bkg_color = WHITE;
 
 	this->m_bkg_color = &bkg_color;
 	this->image = new color_t[ this->get_size_canvas() ]; 
