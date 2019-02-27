@@ -1,9 +1,10 @@
 #include "line.h"
 
-Line::Line (Point *p1, Point *p2, Color *color, Color *color_fill) : Object(color, color_fill)
+Line::Line (POINT *p1, POINT *p2, 
+            Color *color, Color *color_fill) : Shape(color, color_fill)
 {
 	try {
-        if (p1->get_x_axis() > p2->get_x_axis()) {
+        if (p1->x > p2->x) {
             throw 1;
         } else {            
 			this->p1 = p1;
@@ -18,14 +19,54 @@ Line::Line (Point *p1, Point *p2, Color *color, Color *color_fill) : Object(colo
 
 Line::~Line (){}
 
-Point* Line::get_p1 ()
+/**
+ * Principal methods
+ */
+
+void Line::draw ()
+{
+    std::cout << "chamou";
+    int xa, xb, ya, yb;
+
+	xa = this->p1->x;
+	xb = this->p2->x;
+
+	ya = this->p1->y;
+	yb = this->p2->y;
+
+	int delta_x = xb - xa;
+	int delta_y = yb - ya;
+
+	int pk = 2 * delta_y - delta_x;
+	
+	this->pixels.push_back(POINT {xa, ya});
+
+	for ((xa+1); xa <= xb; xa++ )
+	{
+		if (pk < 0) 
+			pk = pk + 2 * delta_y;
+		else 
+		{
+			ya = ya+1;
+			pk = pk + 2* delta_y - 2*delta_x;
+		}
+		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
+		this->pixels.push_back(POINT {xa, ya});
+	}
+}
+
+/**
+ * Getters and Setters 
+ */
+
+POINT* Line::get_p1 ()
 { return this->p1; }
 
-void Line::set_p1 (Point *p1)
+void Line::set_p1 (POINT *p1)
 { this->p1 = p1; }
 
-Point* Line::get_p2 ()
+POINT* Line::get_p2 ()
 { return this->p2; }
 
-void Line::set_p2 (Point *p2)
+void Line::set_p2 (POINT *p2)
 { this->p2 = p2; }

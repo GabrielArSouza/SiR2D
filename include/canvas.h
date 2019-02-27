@@ -2,21 +2,21 @@
 #define _CANVAS_H_
 
 #include <iostream>
+#include <vector>
+
 #include "color.h"
 #include "common.h"
-#include "line.h"
+#include "shape.h"
 
 class Canvas {
 
 private:
 	
 	unsigned int m_width;
-	
 	unsigned int m_heigth;
-
 	Color * m_bkg_color;
-
 	color_t * image;
+	std::vector<Shape*> shapes;
 
 public:
 
@@ -55,12 +55,16 @@ public:
 	void clear ();
 
 	/**
-	 * @brief      draw a line in canvas
-	 *
-	 * @param[in]  line  The line
+	 * @brief draw all shapes of canvas
 	 */
-	void draw (Line * line, Color * color);
+	void draw ();
 
+	/**
+	 * @brief add a new shape in vector of shapes
+	 * 
+	 * @param shape the new shape
+	 */
+	void add_new_shape (Shape *shape);
 
 	/**
 	 * @brief      add a color in a pixel
@@ -70,6 +74,8 @@ public:
 	 * @param      color   The pixel color 
 	 */
 	void color_pixel (int x_axis, int y_axis, Color *color);
+
+	void color_pixel (POINT x, Color * color);
 
 	/**
 	 * @brief      Gets the image.

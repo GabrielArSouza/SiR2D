@@ -1,36 +1,40 @@
-#ifndef _OBJECT_H_
-#define _OBJECT_H_
+#ifndef _SHAPE_H_
+#define _SHAPE_H_
 
 #include "color.h"
-#include "point.h"
+#include "common.h"
 
-class Object {
+#include <vector>
 
-private:
+class Shape {
+
+protected:
 
 	Color *color; 
 
 	Color *color_fill;
 
+	std::vector<POINT> pixels;
+
 public:
 
 	/**
-	 * @brief      Constructs the object.
+	 * @brief      Constructs the Shape.
 	 *
 	 * @param      color       The color border 
 	 * @param      color_fill  The color fill
 	 */
-	Object ( Color *color, Color *color_fill);
+	Shape ( Color *color, Color *color_fill);
 
 	/**
-	 * @brief      Destroys the object.
+	 * @brief      Destroys the Shape.
 	 */
-	~Object ();
+	~Shape ();
 
 	/**
-	 * @brief      draw a object in a canvas
+	 * @brief      draw a Shape in a canvas
 	 */
-	void draw ();
+	virtual void draw ();
 
 	/**
 	 * Getters and Setters
@@ -43,6 +47,8 @@ public:
 	Color* get_color_fill ();
 
 	void set_color_fill (Color *color_fill);
+
+	std::vector<POINT> get_pixels ();
 
 };
 
