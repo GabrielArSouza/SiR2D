@@ -57,13 +57,22 @@ void Circle::draw()
     int y = this->radius;
     int d = 1 - radius;
 
+    int dl = 3;
+    int dse = (-2) * radius + 5;
+
     this->plot_octante_circle(POINT{x,y});
     while (y>x)
     {
         if (d < 0)
-            d = d + 2*x + 3;
-        else{
-            d = d + 2*(x-y)+5;
+        {
+            d += dl;
+            dl += 2;
+            dse += 2;
+            
+        }else{
+            d += dse;
+            dl += 2;
+            dse += 4;
             y--;
         } 
         x++;
