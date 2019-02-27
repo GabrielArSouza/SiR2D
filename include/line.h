@@ -30,6 +30,8 @@ public:
 
 	Line (POINT *p1, POINT *p2, Color color);
 
+	Line (POINT *p1, POINT *p2, Color color, Color color_fill);
+
 	/**
 	 * @brief      Destroys the Shape.
 	 */

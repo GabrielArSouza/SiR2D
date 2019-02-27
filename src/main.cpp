@@ -5,7 +5,7 @@
 #include "raster.h"
 #include "line.h"
 #include "circle.h"
-
+#include "triangle.h"
 int main ()
 {
 
@@ -45,6 +45,10 @@ int main ()
 
 	Circle circle = Circle (POINT {100,100}, 80, BLACK);
 	canvas.add_new_shape(&circle);
+	Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, BLUE);
+	canvas.add_new_shape(&trig);
+	
+
 	canvas.draw();
 
 	Raster raster = Raster (&canvas, filename);

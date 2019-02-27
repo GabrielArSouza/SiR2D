@@ -68,7 +68,7 @@ void Circle::draw()
             d += dl;
             dl += 2;
             dse += 2;
-            
+
         }else{
             d += dse;
             dl += 2;

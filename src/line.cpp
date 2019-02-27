@@ -14,6 +14,14 @@ Line::Line (POINT *p1, POINT *p2,
 	this->p2 = p2;
 }
 
+Line::Line (POINT *p1, POINT *p2, 
+		Color color, Color color_fill) : Shape(&color, &color_fill)
+{
+	this->p1 = p1;
+	this->p2 = p2;
+}
+
+
 Line::~Line (){}
 
 /**
