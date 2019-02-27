@@ -64,6 +64,10 @@ void Canvas::color_pixel (POINT x, Color *color)
 
 void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 {
+	if ( (unsigned int) x_axis > this->m_width || 
+		 (unsigned int) y_axis > this->m_heigth)
+		return;
+
 	/**
 	 * A imagem está armazena sequenciamente em um grande array
 	 * de unsigned char. A ordem de inserção no array é linha por 

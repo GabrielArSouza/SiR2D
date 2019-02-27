@@ -6,6 +6,12 @@ Shape::Shape ( Color *color, Color *color_fill)
 	this->color_fill = color_fill;
 }
 
+Shape::Shape (Color color, Color color_fill)
+{
+	this->color = &color;
+	this->color_fill = &color_fill;
+}
+
 Shape::~Shape (){}
 
 void Shape::draw(){}

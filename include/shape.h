@@ -26,6 +26,7 @@ public:
 	 */
 	Shape ( Color *color, Color *color_fill);
 
+	Shape (Color color, Color color_fill);
 	/**
 	 * @brief      Destroys the Shape.
 	 */
