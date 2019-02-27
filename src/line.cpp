@@ -23,10 +23,9 @@ Line::~Line (){}
  * Principal methods
  */
 
-std::vector<POINT> Line::draw ()
+void Line::draw ()
 {
     std::cout << "chamou";
-    std::vector<POINT> pixels;
     int xa, xb, ya, yb;
 
 	xa = this->p1->x;
@@ -40,7 +39,7 @@ std::vector<POINT> Line::draw ()
 
 	int pk = 2 * delta_y - delta_x;
 	
-	pixels.push_back(POINT {xa, ya});
+	this->pixels.push_back(POINT {xa, ya});
 
 	for ((xa+1); xa <= xb; xa++ )
 	{
@@ -52,10 +51,8 @@ std::vector<POINT> Line::draw ()
 			pk = pk + 2* delta_y - 2*delta_x;
 		}
 		std::cout << "print a pixel (" << xa << "," << ya << ")\n";
-		pixels.push_back(POINT {xa, ya});
+		this->pixels.push_back(POINT {xa, ya});
 	}
-
-    return pixels;
 }
 
 /**

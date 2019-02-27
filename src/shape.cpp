@@ -8,10 +8,7 @@ Shape::Shape ( Color *color, Color *color_fill)
 
 Shape::~Shape (){}
 
-std::vector<POINT> Shape::draw(){
-	std::vector<POINT> p = {{1,1}};
-	return p;
-}
+void Shape::draw(){}
 
 Color* Shape::get_color ()
 { return this->color; }
@@ -24,3 +21,6 @@ Color* Shape::get_color_fill ()
 
 void Shape::set_color_fill (Color *color_fill)
 { this->color_fill = color_fill; }
+
+std::vector<POINT> Shape::get_pixels ()
+{ return this->pixels;}

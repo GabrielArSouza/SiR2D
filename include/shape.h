@@ -14,6 +14,8 @@ protected:
 
 	Color *color_fill;
 
+	std::vector<POINT> pixels;
+
 public:
 
 	/**
@@ -32,7 +34,7 @@ public:
 	/**
 	 * @brief      draw a Shape in a canvas
 	 */
-	virtual std::vector<POINT> draw ();
+	virtual void draw ();
 
 	/**
 	 * Getters and Setters
@@ -45,6 +47,8 @@ public:
 	Color* get_color_fill ();
 
 	void set_color_fill (Color *color_fill);
+
+	std::vector<POINT> get_pixels ();
 
 };
 

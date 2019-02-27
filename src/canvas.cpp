@@ -46,17 +46,18 @@ void Canvas::clear ()
  */
 
 void Canvas::add_new_shape (Shape *shape)
-{ this->shapes.push_back(*shape);}
+{ 	this->shapes.push_back(shape);}
 
-void Canvas::draw ()
+void Canvas::draw () 	
 {
 	std::vector<POINT> temp;
 
 	for (unsigned int i=0; i < this->shapes.size(); i++)
 	{
-		temp = shapes[i].draw();
+		shapes[i]->draw();
+		temp = shapes[i]->get_pixels();
 		for (unsigned int j=0; j < temp.size(); j++)
-			this->color_pixel(temp[j], shapes[i].get_color());
+			this->color_pixel(temp[j], shapes[i]->get_color());
 	}
 }
 

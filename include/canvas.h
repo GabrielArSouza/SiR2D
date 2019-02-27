@@ -16,7 +16,7 @@ private:
 	unsigned int m_heigth;
 	Color * m_bkg_color;
 	color_t * image;
-	std::vector<Shape> shapes;
+	std::vector<Shape*> shapes;
 
 public:
 

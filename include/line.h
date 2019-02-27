@@ -32,7 +32,7 @@ public:
 	 * 
 	 * @param canvas the canvas
 	 */
-	std::vector<POINT> draw ();
+	void draw ();
 
 	/**
 	 * Getters and Setters
