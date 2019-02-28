@@ -30,3 +30,5 @@ void Shape::set_color_fill (Color *color_fill)
 
 std::vector<POINT> Shape::get_pixels ()
 { return this->pixels;}
+
+std::string Shape::to_string(){return "I'm a shape\n";}

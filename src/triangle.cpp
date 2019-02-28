@@ -3,7 +3,7 @@
 // constructors
 
 Triangle::Triangle(POINT p1, POINT p2, POINT p3)
-    : Shape (BLACK, BLACK)
+    : Shape (Color::BLACK, Color::BLACK)
 {
     this->p1 = p1;
     this->p2 = p2;
@@ -72,3 +72,6 @@ void Triangle::set_points (POINT p1, POINT p2, POINT p3)
     this->p2 = p2;
     this->p3 = p3;
 }
+
+std::string Triangle::to_string()
+{  return "I'm a triangle and my color is " + color->to_string() + "\n"; }

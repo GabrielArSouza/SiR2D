@@ -16,14 +16,14 @@ int main ()
 	Color color = Color(4,255,4);
 	
 	// create a line
-	// POINT p1 = {20, 20};
-	// POINT p2 = {20, 180};
+	POINT p1 = {20, 20};
+	POINT p2 = {20, 180};
 	// POINT p3 = {180, 20};
 	// POINT p4 = {180, 180};
 	// POINT p5 = {100, 100};
 
-	// Line line1 = Line(&p1, &p2, BLACK);
-	// canvas.add_new_shape(&line1);
+	Line line1 = Line(&p1, &p2, Color::GREEN);
+	canvas.add_new_shape(&line1);
 
 	// Line line2 = Line (&p1, &p3, &color, &color);	
 	// canvas.add_new_shape(&line2);
@@ -43,9 +43,9 @@ int main ()
 	// Line line7 = Line (&p3, &p4, &color, &color);
 	// canvas.add_new_shape(&line7);
 
-	Circle circle = Circle (POINT {100,100}, 80, BLACK);
+	Circle circle = Circle (POINT {100,100}, 80, Color::SKYBLUE);
 	canvas.add_new_shape(&circle);
-	Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, BLUE);
+	Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, Color::PINK);
 	canvas.add_new_shape(&trig);
 	
 

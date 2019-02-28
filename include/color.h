@@ -1,6 +1,7 @@
 #ifndef _COLOR_H_
 #define _COLOR_H_
 
+	#include <string>
 	/**
 	 * Type of a color channel
 	 */
@@ -18,6 +19,18 @@
 	class Color {
 
 		public:
+			
+			static const Color RED;
+			static const Color GREEN;
+			static const Color BLUE;
+			static const Color BLACK;
+			static const Color WHITE;
+			static const Color YELLOW;
+			static const Color PINK;
+			static const Color ORANGE;
+			static const Color BOLDGREEN;
+			static const Color SKYBLUE;
+
 			/**
 			 * The 3 channels: red, green and blue
 			 */
@@ -61,9 +74,10 @@
 			 * @return     True, if equals; false otherwise
 			 */
 			bool operator== (const Color & rhs);
-	
-	
+		
 			color_t * get_color_value ();
+
+			std::string to_string();
 	};
 
 #endif

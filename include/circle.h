@@ -74,6 +74,8 @@ public:
      * @param radius the new radius of circle
      */
     void set_radius (int radius);
+
+    std::string to_string();
 };
 
 #endif

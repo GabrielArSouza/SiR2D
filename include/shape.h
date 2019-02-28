@@ -5,6 +5,7 @@
 #include "common.h"
 
 #include <vector>
+#include <string>
 
 class Shape {
 
@@ -51,6 +52,7 @@ public:
 
 	std::vector<POINT> get_pixels ();
 
+	virtual std::string to_string();
 };
 
 #endif

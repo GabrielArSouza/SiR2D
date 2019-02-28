@@ -56,6 +56,8 @@ public:
 
 	void set_p2 (POINT *p2);
 
+	std::string to_string();
+
 };
 
 #endif

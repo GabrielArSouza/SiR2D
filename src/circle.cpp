@@ -4,7 +4,7 @@
  * Constructors
  */
 
-Circle::Circle(POINT center, int radius) : Shape(BLACK, WHITE)
+Circle::Circle(POINT center, int radius) : Shape(Color::BLACK, Color::WHITE)
 { 
     this->center = center;
     this->radius = radius;
@@ -89,3 +89,6 @@ int Circle::get_radius ()
 
 void Circle::set_radius (int radius)
 { this->radius = radius; }
+
+std::string Circle::to_string()
+{  return "I'm a circle and my color is " + color->to_string() + "\n"; }

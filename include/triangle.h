@@ -26,6 +26,8 @@ public:
 
     std::vector<POINT> get_points ();
     void set_points (POINT p1, POINT p2, POINT p3);
+
+    std::string to_string();
 };
 
 #endif
