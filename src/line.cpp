@@ -1,26 +1,11 @@
 #include "line.h"
 
-Line::Line (POINT *p1, POINT *p2, 
-            Color *color, Color *color_fill) : Shape(color, color_fill)
+Line::Line (POINT *p1, POINT *p2, const Color &color)
+	: Shape(color)
 {
 	this->p1 = p1;
 	this->p2 = p2;
 }
-
-Line::Line (POINT *p1, POINT *p2, 
-			Color color) : Shape(&color, &color) 
-{
-	this->p1 = p1;
-	this->p2 = p2;
-}
-
-Line::Line (POINT *p1, POINT *p2, 
-		Color color, Color color_fill) : Shape(&color, &color_fill)
-{
-	this->p1 = p1;
-	this->p2 = p2;
-}
-
 
 Line::~Line (){}
 
@@ -118,3 +103,6 @@ POINT* Line::get_p2 ()
 
 void Line::set_p2 (POINT *p2)
 { this->p2 = p2; }
+
+std::string Line::to_string()
+{  return "I'm a line and my color is " + color.to_string() + "\n"; }

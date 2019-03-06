@@ -28,25 +28,7 @@ public:
      * @param radius the radius
      * @param color the color border and backgroud
      */
-    Circle(POINT center, int radius, Color color);
-
-    /**
-     * @brief Construct a new Circle object
-     * 
-     * @param radius the radius
-     * @param color  the color border
-     * @param fill_color the color fill
-     */
-    Circle(POINT center, int radius, Color color, Color fill_color);
-
-    /**
-     * @brief Construct a new Circle object
-     * 
-     * @param radius  the radius 
-     * @param color   the object color from border color
-     * @param fill_color the object color from color fill
-     */
-    Circle(POINT center, int radius, Color *color, Color *fill_color);
+    Circle(POINT center, int radius, const Color &color);
 
     /**
      * @brief Destroy the Circle object
@@ -74,6 +56,8 @@ public:
      * @param radius the new radius of circle
      */
     void set_radius (int radius);
+
+    std::string to_string();
 };
 
 #endif

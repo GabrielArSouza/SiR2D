@@ -1,7 +1,6 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
-#include "color_palette.h"
 
 #define MAX_COLOR_VALUE 255
 #define MIN_COLOR_VALUE 0

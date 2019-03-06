@@ -3,29 +3,21 @@
 // constructors
 
 Triangle::Triangle(POINT p1, POINT p2, POINT p3)
-    : Shape (BLACK, BLACK)
+    : Shape (Color::BLACK)
 {
     this->p1 = p1;
     this->p2 = p2;
     this->p3 = p3;
 }
 
-Triangle::Triangle(POINT p1, POINT p2, POINT p3, 
-    Color color) : Shape (&color, &color)
+Triangle::Triangle(POINT p1, POINT p2, POINT p3, const Color &color) 
+    : Shape (color)
 {
     this->p1 = p1;
     this->p2 = p2;
     this->p3 = p3;
 }
 
-
-Triangle::Triangle(POINT p1, POINT p2, POINT p3, 
-    Color color, Color fill_color) : Shape(&color, &fill_color)
-{
-    this->p1 = p1;
-    this->p2 = p2;
-    this->p3 = p3;
-}
 
 Triangle::~Triangle(){}
 
@@ -35,19 +27,19 @@ Triangle::~Triangle(){}
  {
     std::vector<POINT> aux;
 
-    Line l1 = Line (&p1, &p2, color, color_fill);
+    Line l1 = Line (&p1, &p2, color);
     l1.draw();
     aux = l1.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
         this->pixels.push_back(*it);
 
-    Line l2 = Line (&p1, &p3, color, color_fill);
+    Line l2 = Line (&p1, &p3, color);
     l2.draw();
     aux = l2.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
         this->pixels.push_back(*it);
    
-    Line l3 = Line (&p2, &p3, color, color_fill);    
+    Line l3 = Line (&p2, &p3, color);    
     l3.draw();
     aux = l3.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
@@ -72,3 +64,6 @@ void Triangle::set_points (POINT p1, POINT p2, POINT p3)
     this->p2 = p2;
     this->p3 = p3;
 }
+
+std::string Triangle::to_string()
+{  return "I'm a triangle and my color is " + color.to_string() + "\n"; }

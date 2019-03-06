@@ -19,18 +19,7 @@ private:
 
 public:
 
-	/**
-	 * @brief      Constructs the Shape.
-	 *
-	 * @param      p1    The point 1
-	 * @param      p2    The point 2
-	 */
-	Line (POINT *p1, POINT *p2, Color *color, Color *color_fill);
-
-
-	Line (POINT *p1, POINT *p2, Color color);
-
-	Line (POINT *p1, POINT *p2, Color color, Color color_fill);
+	Line (POINT *p1, POINT *p2, const Color &color);
 
 	/**
 	 * @brief      Destroys the Shape.
@@ -55,6 +44,8 @@ public:
 	POINT* get_p2 ();
 
 	void set_p2 (POINT *p2);
+
+	std::string to_string();
 
 };
 
