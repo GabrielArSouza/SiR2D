@@ -11,23 +11,13 @@ class Shape {
 
 protected:
 
-	Color *color; 
-
-	Color *color_fill;
-
+	Color color;
 	std::vector<POINT> pixels;
 
 public:
 
-	/**
-	 * @brief      Constructs the Shape.
-	 *
-	 * @param      color       The color border 
-	 * @param      color_fill  The color fill
-	 */
-	Shape ( Color *color, Color *color_fill);
+	Shape (const Color &color);
 
-	Shape (Color color, Color color_fill);
 	/**
 	 * @brief      Destroys the Shape.
 	 */
@@ -42,13 +32,8 @@ public:
 	 * Getters and Setters
 	 */
 
-	Color* get_color ();
-
-	void set_color (Color *color);
-
-	Color* get_color_fill ();
-
-	void set_color_fill (Color *color_fill);
+	Color * get_color ();
+	void set_color (const Color &color);
 
 	std::vector<POINT> get_pixels ();
 

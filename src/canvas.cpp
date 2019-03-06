@@ -18,7 +18,7 @@ Canvas::Canvas (unsigned int m_width, unsigned int m_heigth, Color * m_bkg_color
 	this->m_width = m_width;
 	this->m_heigth = m_heigth;
 	this->m_bkg_color = m_bkg_color;
-	this->image = new color_t[ m_width*m_heigth ]; 
+	this->image = new color_t[ this->get_size_canvas() ]; 
 	this->clear();
 }
 
