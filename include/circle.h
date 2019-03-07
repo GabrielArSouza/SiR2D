@@ -13,6 +13,8 @@ private:
     //<! the mid point of circle
     POINT center;
 
+    Color fill;
+
 public:
 
     /**
@@ -20,7 +22,7 @@ public:
      * 
      * @param radius the radius
      */
-    Circle(POINT center, int radius);
+    Circle(POINT center = POINT{0,0}, int radius = 0);
 
     /**
      * @brief Construct a new Circle object
@@ -30,11 +32,15 @@ public:
      */
     Circle(POINT center, int radius, const Color &color);
 
+    Circle(POINT center, int radius, const Color &color, const Color &fill);
+
     /**
      * @brief Destroy the Circle object
      * 
      */
     ~Circle();
+
+    Circle & operator= (const Circle &rhs);
 
     /**
      * @brief define the pixels from generate a circle
@@ -56,6 +62,8 @@ public:
      * @param radius the new radius of circle
      */
     void set_radius (int radius);
+
+    void set_fill (const Color & fill);
 
     std::string to_string();
 };

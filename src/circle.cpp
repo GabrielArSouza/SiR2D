@@ -3,12 +3,14 @@
 /**
  * Constructors
  */
-
+#include<iostream>
 Circle::Circle(POINT center, int radius) 
     : Shape(Color::BLACK)
 { 
+    std::cout << "entrou no construtor black\n";
     this->center = center;
     this->radius = radius;
+    this->fill = Color::WHITE;
 }
 
 Circle::Circle(POINT center, int radius, const Color &color) 
@@ -16,9 +18,28 @@ Circle::Circle(POINT center, int radius, const Color &color)
 { 
     this->center = center;
     this->radius = radius;
+    this->fill = Color::WHITE;
+}
+
+
+Circle::Circle(POINT center, int radius, const Color &color, const Color &fill)
+    :Shape(color)
+{
+    std::cout << "entrou no contrutor correto\n";
+    this->center = center;
+    this->radius = radius;
+    this->fill = fill;
 }
 
 Circle::~Circle(){}
+
+Circle& Circle::operator= (const Circle &rhs)
+{
+    this->center = rhs.center;
+    this->radius = rhs.radius;
+    this->fill = rhs.fill;
+    return *this;
+}
 
 /**
  * Principal methods
@@ -74,6 +95,9 @@ int Circle::get_radius ()
 
 void Circle::set_radius (int radius)
 { this->radius = radius; }
+
+void Circle::set_fill (const Color & f)
+{ fill = f;}
 
 std::string Circle::to_string()
 {  return "I'm a circle and my color is " + color.to_string() + "\n"; }

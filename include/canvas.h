@@ -14,7 +14,7 @@ private:
 	
 	unsigned int m_width;
 	unsigned int m_heigth;
-	Color * m_bkg_color;
+	Color m_bkg_color;
 	color_t * image;
 	std::vector<Shape*> shapes;
 
@@ -35,7 +35,7 @@ public:
 	 * @param[in]  m_heigth     The m heigth
 	 * @param      m_bkg_color  The m bkg color
 	 */
-	Canvas (unsigned int m_width, unsigned int m_heigth, Color * m_bkg_color);
+	Canvas (unsigned int m_width, unsigned int m_heigth, const Color & m_bkg_color);
 
 	/**
 	 * @brief      Destroys the object.
@@ -48,6 +48,8 @@ public:
 	 * @param      clone  The clone
 	 */
 	Canvas (Canvas && clone);
+
+	Canvas& operator= (const Canvas & rhs);
 
 	/**
 	 * @brief      clear the Canvas
@@ -104,6 +106,8 @@ public:
 	 * @return     The size canvas.
 	 */
 	unsigned int get_size_canvas ();
+
+	void set_color_bkg (const Color & color_bkg);
 
 };
 

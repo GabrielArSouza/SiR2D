@@ -18,8 +18,9 @@ typedef struct POINT {
             return true;
         return false;
     }
-    void operator= (POINT &rhs)
-    { x = rhs.x; y = rhs.y; }
+    POINT & operator= (const POINT &rhs)
+    { x = rhs.x; y = rhs.y; return *this;}
+
 
 } POINT;
 

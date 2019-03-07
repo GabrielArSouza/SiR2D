@@ -22,7 +22,7 @@ int main ()
 	// Line line1 = Line(&p1, &p2, Color::GREEN);
 	// canvas.add_new_shape(&line1);
 
-	// Circle circle = Circle (POINT {100,100}, 80, Color::BLACK);
+	// Circle circle = Circle (POINT {100,100}, 80, Color::PINK);
 	// canvas.add_new_shape(&circle);
 	
 	// Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, Color::PINK);
