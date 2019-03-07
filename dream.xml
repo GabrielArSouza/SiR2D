@@ -1,5 +1,6 @@
 <?xml version=\"1.0\"?>
 <!DOCTYPE PLAY SYSTEM play.dtd>
-<PLAY>
-	<TITLE>A Midsummer Night's Dream</TITLE>
-</PLAY>
+<scene>
+	<canvas height="200" width="200"></canvas>
+	<shape type="circle" cx="100" cy="100" r="80"></shape>
+</scene>
