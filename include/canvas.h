@@ -108,6 +108,7 @@ public:
 	unsigned int get_size_canvas ();
 
 	void set_color_bkg (const Color & color_bkg);
+	void set_shapes (std::vector<Shape*> shapes);
 
 };
 

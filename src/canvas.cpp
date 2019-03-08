@@ -54,6 +54,7 @@ void Canvas::add_new_shape (Shape *shape)
 { 	
 	std::cout << shape->to_string();
 	this->shapes.push_back(shape);
+	std::cout << this->shapes[shapes.size()-1]->to_string();
 }
 
 void Canvas::draw () 	
@@ -133,3 +134,6 @@ unsigned int Canvas::get_size_canvas ()
 
 void Canvas::set_color_bkg (const Color & color_bkg)
 { this->m_bkg_color = color_bkg;}
+
+void Canvas::set_shapes (std::vector<Shape*> shapes)
+{ this->shapes = shapes; }

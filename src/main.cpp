@@ -11,7 +11,7 @@
 
 int main ()
 {
-	// std::string filename = "teste";
+	std::string filename = "teste";
 
 	// Canvas canvas = Canvas(200, 200);
 	
@@ -28,12 +28,23 @@ int main ()
 	// Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, Color::PINK);
 	// canvas.add_new_shape(&trig);
 	
+	try	{
+		parser_xml("dream.xml");	
+	}
+	catch(const char * e)	{
+		std::cerr << e << '\n';
+	}
+	
+
+	// Circle circle = Circle (POINT {100,100}, 80, Color::PINK);
+	// canvas.add_new_shape(&circle);
+
 	// canvas.draw();
 
 	// Raster raster = Raster (&canvas, filename);
 	// raster.draw();
 
-	parser_xml("dream.xml");
-
+	
+	
 	return 0;
 }
