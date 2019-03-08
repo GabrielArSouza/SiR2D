@@ -23,7 +23,7 @@ using namespace tinyxml2;
  * @brief Parse and interprets a xml archive
  * @param filename the filename
  */
-void parser_xml (std::string filename);
+void parser_xml (std::string filename, std::string imagename);
 
 /**
  * @brief Create a circle object of a xml declaration

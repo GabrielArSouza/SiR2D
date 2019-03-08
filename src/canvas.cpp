@@ -133,7 +133,10 @@ unsigned int Canvas::get_size_canvas ()
 { return this->m_width * this->m_heigth * VALUES_PER_PIXEL; }
 
 void Canvas::set_color_bkg (const Color & color_bkg)
-{ this->m_bkg_color = color_bkg;}
+{ 
+	this->m_bkg_color = color_bkg; 
+	this->clear();
+}
 
 void Canvas::set_shapes (std::vector<Shape*> shapes)
 { this->shapes = shapes; }

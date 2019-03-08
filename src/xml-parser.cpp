@@ -1,7 +1,7 @@
 #include "xml-parser.h"
 using namespace tinyxml2;
 
-void parser_xml (std::string filename)
+void parser_xml (std::string filename, std::string imagename)
 {
     XMLDocument doc;
     doc.LoadFile( filename.c_str() );
@@ -23,8 +23,10 @@ void parser_xml (std::string filename)
 		else throw INVALID_CANVAS;
 
 		canvas = Canvas(std::stoi(width), std::stoi(height));
+		
 		if (pRoot->Attribute("color") != NULL)
 		{
+			std::cout << "entrou\n";
 			color_bkg = pRoot->Attribute("color");
 			try	{
 				Color color;
@@ -69,7 +71,7 @@ void parser_xml (std::string filename)
 
 	canvas.draw();
 
-	Raster raster = Raster (&canvas, filename);
+	Raster raster = Raster (&canvas, imagename);
 	raster.draw();
 }
 

@@ -9,42 +9,32 @@
 #include "xml-parser.h"
 
 
-int main ()
+int main (int argc, char *argv[])
 {
-	std::string filename = "teste";
 
-	// Canvas canvas = Canvas(200, 200);
-	
-	// // create a line
-	// POINT p1 = {20, 20};
-	// POINT p2 = {20, 180};
+	std::string filename, imagename;
+	if (argc == 2)
+	{
+		filename = argv[1];
+		imagename  = "out";
+	} else if (argc == 3) 
+	{
+		filename = argv[1];
+		imagename = argv[2];
+	} else 
+	{
+		std::cout << "Please, specify the xml file with the scene specification.\n";
+		std::cout << "./exe.out <xml_file> <image_name>\n";
+		return 0;	
+	}
 
-	// Line line1 = Line(&p1, &p2, Color::GREEN);
-	// canvas.add_new_shape(&line1);
-
-	// Circle circle = Circle (POINT {100,100}, 80, Color::PINK);
-	// canvas.add_new_shape(&circle);
-	
-	// Triangle trig = Triangle(POINT{20,20}, POINT{140,60}, POINT{140,140}, Color::PINK);
-	// canvas.add_new_shape(&trig);
-	
 	try	{
-		parser_xml("dream.xml");	
+		parser_xml(filename, imagename);	
 	}
 	catch(const char * e)	{
 		std::cerr << e << '\n';
 	}
 	
-
-	// Circle circle = Circle (POINT {100,100}, 80, Color::PINK);
-	// canvas.add_new_shape(&circle);
-
-	// canvas.draw();
-
-	// Raster raster = Raster (&canvas, filename);
-	// raster.draw();
-
-	
-	
 	return 0;
+	
 }

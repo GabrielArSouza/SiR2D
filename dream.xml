@@ -1,6 +1,6 @@
 <?xml version=\"1.0\"?>
 <!DOCTYPE PLAY SYSTEM play.dtd>
 <scene>
-	<canvas height="200" color="white"></canvas>
-	<shape type="circle" cx="100" cy="100" r="80" stroke="green" fill="red"></shape>
+	<canvas height="200" width="200" color="black"></canvas>
+	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="red"></shape>
 </scene>
