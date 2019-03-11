@@ -5,10 +5,7 @@ Shape::Shape (const Color &color)
 
 Shape::~Shape (){}
 
-#include <iostream>
-void Shape::draw(){
-    std::cout << "chamou o draw do pai\n";
-}
+void Shape::draw(){}
 
 Color * Shape::get_color ()
 { return &color; }

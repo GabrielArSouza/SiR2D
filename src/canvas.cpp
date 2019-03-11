@@ -51,11 +51,7 @@ void Canvas::clear ()
 
 #include<iostream>
 void Canvas::add_new_shape (Shape *shape)
-{ 	
-	std::cout << shape->to_string();
-	this->shapes.push_back(shape);
-	std::cout << this->shapes[shapes.size()-1]->to_string();
-}
+{ this->shapes.push_back(shape); }
 
 void Canvas::draw () 	
 {
@@ -69,6 +65,8 @@ void Canvas::draw ()
 		for (unsigned int j=0; j < temp.size(); j++)
 			this->color_pixel(temp[j], shapes[i]->get_color());
 	}
+
+	this->antialising();
 }
 
 void Canvas::color_pixel (POINT x, Color *color)
@@ -155,7 +153,9 @@ void Canvas::antialising ()
 	int sfilter = 3;
 	int somar=0, somag=0, somab=0;
 	int p_init = 0;
-	int gaussian[sfilter][sfilter] = {{1,2,1},{2,4,2},{1,2,1}};
+	int gaussian[sfilter][sfilter] = {{1,2,1},
+									  {2,4,2},
+									  {1,2,1}};
 	
 	for (unsigned int i =1; i < m_width; i++) 	{
 		for (unsigned int j=1; j< m_heigth; j++) {
@@ -164,10 +164,10 @@ void Canvas::antialising ()
 			for (int k=0; k < sfilter; k++) {
 				for (int l=0; l < sfilter; l++) {
 					p_init = this->get_position_pixel(i+k, j+k);
-					
-					somar += this->image[p_init]*gaussian[i][j];
-					somag += this->image[p_init+1]*gaussian[i][j];
-					somab += this->image[p_init+2]*gaussian[i][j]; 
+					// std::cout << gaussian[k][l] << "\n";
+					somar += this->image[p_init]*gaussian[k][l];
+					somag += this->image[p_init+1]*gaussian[k][l];
+					somab += this->image[p_init+2]*gaussian[k][l]; 
 				}
 			}
 
@@ -176,6 +176,10 @@ void Canvas::antialising ()
 			this->image[p_init] = somar/16;
 			this->image[p_init+1] = somag/16;
 			this->image[p_init+2] = somab/16;
+
+			somar = 0;
+			somag = 0;
+			somab = 0;
 
 		}
 	}

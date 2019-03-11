@@ -1,7 +1,13 @@
 #include "line.h"
 
-Line::Line (POINT *p1, POINT *p2, const Color &color)
+Line::Line (POINT p1, POINT p2, const Color &color)
 	: Shape(color)
+{
+	this->p1 = p1;
+	this->p2 = p2;
+}
+
+Line::Line (POINT p1, POINT p2) : Shape(Color::BLACK)
 {
 	this->p1 = p1;
 	this->p2 = p2;
@@ -69,11 +75,11 @@ void Line::draw ()
 {
     int xa, xb, ya, yb;
 
-	xa = this->p1->x;
-	xb = this->p2->x;
+	xa = p1.x;
+	xb = p2.x;
 
-	ya = this->p1->y;
-	yb = this->p2->y;
+	ya = p1.y;
+	yb = p2.y;
 
 	if ( abs(yb - ya) < abs(xb - xa)){
 		if (xa > xb)
@@ -92,16 +98,16 @@ void Line::draw ()
  * Getters and Setters 
  */
 
-POINT* Line::get_p1 ()
+POINT Line::get_p1 ()
 { return this->p1; }
 
-void Line::set_p1 (POINT *p1)
+void Line::set_p1 (POINT p1)
 { this->p1 = p1; }
 
-POINT* Line::get_p2 ()
+POINT Line::get_p2 ()
 { return this->p2; }
 
-void Line::set_p2 (POINT *p2)
+void Line::set_p2 (POINT p2)
 { this->p2 = p2; }
 
 std::string Line::to_string()

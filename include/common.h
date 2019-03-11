@@ -8,16 +8,19 @@
 #define OUTPUT_EXTENSION ".ppm"
 #define OUTPUT_INDEX "P3"
 
+#include "color.h"
+
 typedef struct POINT {
     
     int x,y;
-
+  
     bool operator== (POINT &rhs)
     {
         if ((x == rhs.x) && (y == rhs.y))
             return true;
         return false;
     }
+
     POINT & operator= (const POINT &rhs)
     { x = rhs.x; y = rhs.y; return *this;}
 
