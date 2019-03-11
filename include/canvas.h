@@ -112,6 +112,8 @@ public:
 	void antialising ();
 	int get_position_pixel(int x, int y);
 
+	void floodfill (POINT init, Color & old, Color & fill);
+
 };
 
 #endif

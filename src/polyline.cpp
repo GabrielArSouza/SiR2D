@@ -1,11 +1,16 @@
 #include "polyline.h"
 
-Polyline::Polyline( std::vector<Shape*> lines, const Color &color )
-    : Shape(color)
-{ this->lines = lines; }
+Polyline::Polyline( std::vector<Shape*> lines,bool is_polygon, 
+    bool floodfill , POINT p, const Color &color)
+    : Shape(color, floodfill, is_polygon)
+{ 
+    this->lines = lines; 
+    this->p_floodfill = p;
+}
 
-Polyline::Polyline( std::vector<POINT> points, const Color &color )
-    : Shape(color)
+Polyline::Polyline( std::vector<POINT> points, bool is_polygon,
+     bool floodfill , POINT p,  const Color &color)
+    : Shape(color, floodfill, is_polygon)
 { 
     POINT aux;
     if ( !points.empty() )
@@ -18,6 +23,8 @@ Polyline::Polyline( std::vector<POINT> points, const Color &color )
         lines.push_back(new Line(aux, *it, color));
         aux = *it;
     }
+
+    this->p_floodfill = p;
 }
 
 Polyline::~Polyline()
@@ -38,3 +45,16 @@ void Polyline::draw()
 
 std::string Polyline::to_string()
 {  return "I'm a polyline and my color is " + color.to_string() + "\n"; }
+
+POINT Polyline::get_pfloodfill(){
+    return p_floodfill;
+}
+// void Polyline::set_pfloodfill(POINT p){
+//     this->p_floodfill = p;
+// }
+
+Color& Polyline::get_fill()
+{ return this->fill_color;}
+
+void Polyline::set_fill (const Color & color)
+{ this->fill_color = color; }

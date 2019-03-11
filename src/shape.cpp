@@ -1,7 +1,11 @@
 #include "shape.h"
 
-Shape::Shape (const Color &color)
-{ this->color = color; }
+Shape::Shape (const Color &color, bool floodfill, bool polygon)
+{ 
+    this->color = color;
+    this->floodfill = floodfill;
+    this->polygon = polygon;
+}
 
 Shape::~Shape (){}
 
@@ -17,3 +21,21 @@ std::vector<POINT> Shape::get_pixels ()
 { return this->pixels;}
 
 std::string Shape::to_string(){return "I'm a shape\n";}
+
+Color& Shape::get_fill()
+{ return this->color; }
+
+void Shape::set_floodfill(bool value)
+{ this->floodfill = value;}
+
+bool Shape::is_floodfill()
+{ return this->floodfill; }
+
+bool Shape::is_polygon()
+{ return polygon; }
+
+POINT Shape::get_pfloodfill()
+{ return POINT{0,0};}
+
+// void set_pfloodfill(POINT p)
+// {}

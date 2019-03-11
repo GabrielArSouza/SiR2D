@@ -64,6 +64,8 @@ void Canvas::draw ()
 		temp = shapes[i]->get_pixels();
 		for (unsigned int j=0; j < temp.size(); j++)
 			this->color_pixel(temp[j], shapes[i]->get_color());
+		if (shapes[i]->is_floodfill())
+			this->floodfill(shapes[i]->get_pfloodfill(), this->m_bkg_color, shapes[i]->get_fill());
 	}
 
 	this->antialising();
@@ -164,7 +166,7 @@ void Canvas::antialising ()
 			for (int k=0; k < sfilter; k++) {
 				for (int l=0; l < sfilter; l++) {
 					p_init = this->get_position_pixel(i+k, j+k);
-					// std::cout << gaussian[k][l] << "\n";
+
 					somar += this->image[p_init]*gaussian[k][l];
 					somag += this->image[p_init+1]*gaussian[k][l];
 					somab += this->image[p_init+2]*gaussian[k][l]; 
@@ -180,7 +182,23 @@ void Canvas::antialising ()
 			somar = 0;
 			somag = 0;
 			somab = 0;
-
 		}
+	}
+}
+
+void Canvas::floodfill (POINT init, Color & old, Color & fill)
+{
+	if (old == fill) return;
+	if (init.x < 0 || init.x >= (int)m_width ) return;
+	if (init.y < 0 || init.y >= (int)m_heigth) return;
+
+	int pos = this->get_position_pixel(init.x, init.y);
+	Color cpixel = Color(image[pos], image[pos+1], image[pos+2]);
+	if ((cpixel == old) and !(cpixel == fill)){
+		this->color_pixel(init, &fill);
+		this->floodfill(POINT{init.x+1, init.y}, old, fill);
+		this->floodfill(POINT{init.x, init.y+1}, old, fill);
+		this->floodfill(POINT{init.x-1, init.y}, old, fill);
+		this->floodfill(POINT{init.x, init.y-1}, old, fill);
 	}
 }

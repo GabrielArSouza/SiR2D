@@ -97,7 +97,7 @@ void parser_xml (std::string filename, std::string imagename)
 void create_circle (Circle *&circle, XMLElement * element )
 {
 	// Attributes of a circle
-	std::string cx, cy, r, stroke, fill;
+	std::string cx, cy, r, stroke, fill, point;
 	
 	// -----------------------------------
 	// Check required attributes
@@ -125,9 +125,19 @@ void create_circle (Circle *&circle, XMLElement * element )
 		fill = element->Attribute("fill");
 	// -----------------------------------------
 
-	// Define a basic circle
-	circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r));
+	if (element->Attribute("pcolor") != NULL)
+		point = element->Attribute("pcolor");
 
+	// Define a basic circle
+	if ( !point.empty() )
+	{
+		std::vector<std::string> point_axis;
+		boost::split(point_axis, point, [](char c){return c == ',';});
+		POINT u_point = POINT{std::stoi(point_axis[0]), std::stoi(point_axis[1])};
+		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r), true, u_point);
+	}else {
+		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r));
+	}
 	// -----------------------------------------------
 	// Check and get colors 
 	// -----------------------------------------------
@@ -205,7 +215,7 @@ void create_line (Line *&line, XMLElement *element )
 void create_polyline (Polyline *&pl, XMLElement *element)
 {
 	// Attributes of a polyline
-	std::string points, stroke;
+	std::string points, stroke, fill, point, polygon;
 	
 	// -----------------------------------
 	// Check required attributes
@@ -227,13 +237,37 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 		polypoints.push_back(POINT{std::stoi(u_point[0]), std::stoi(u_point[1])});
 	}
 
-	pl = new Polyline(polypoints);
+	// check if is a polygon
+	bool is_polygon = false;
+	if (element->Attribute("polygon") != NULL)
+	{
+		polygon = element->Attribute("polygon");
+		if (polygon.compare("true") == 0) is_polygon = true;
+	}
 
 	// ----------------------------------------
 	// Try get line color
 	// ----------------------------------------
 	if (element->Attribute("stroke") != NULL)
 		stroke = element->Attribute("stroke");
+
+	if (element->Attribute("fill") != NULL)
+		fill = element->Attribute("fill");
+	// -----------------------------------------
+
+	if (element->Attribute("pcolor") != NULL)
+		point = element->Attribute("pcolor");
+
+	// Define a basic circle
+	if ( !point.empty() )
+	{
+		std::vector<std::string> point_axis;
+		boost::split(point_axis, point, [](char c){return c == ',';});
+		POINT u_point = POINT{std::stoi(point_axis[0]), std::stoi(point_axis[1])};
+		pl = new Polyline(polypoints, is_polygon, true, u_point);
+	}else {
+		pl = new Polyline(polypoints);
+	}
 
 	// -----------------------------------------------
 	// Check and get color 
@@ -244,6 +278,16 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 			c_stroke = c_stroke.get_color(stroke);
 			pl->set_color(c_stroke);	
 		}catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+	if (!fill.empty()){
+		try {
+			Color c_fill;
+			c_fill = c_fill.get_color(fill);
+			pl->set_fill(c_fill);
+		}catch(const std::exception& e)	{
 			std::cerr << e.what() << '\n';
 		}
 	}
