@@ -42,6 +42,31 @@ std::string Color::to_string()
 			 + "," + std::to_string(channels[2]) + ")";
 }
 
+const Color& Color::get_color(std::string name_color)
+{
+	if (name_color.compare("red") == 0)
+		return Color::RED;
+	else if (name_color.compare("green") == 0)
+		return Color::GREEN;
+	else if (name_color.compare("blue") == 0)
+		return Color::BLUE;
+	else if (name_color.compare("black") == 0)
+		return Color::BLACK;
+	else if (name_color.compare("white") == 0)
+		return Color::WHITE;
+	else if (name_color.compare("yellow") == 0)
+		return Color::YELLOW;
+	else if (name_color.compare("pink") == 0)
+		return Color::PINK;
+	else if (name_color.compare("orange") == 0)
+		return Color::ORANGE;
+	else if (name_color.compare("boldgreen") == 0)
+		return Color::BOLDGREEN;
+	else if (name_color.compare("skyblue") == 0)
+		return Color::SKYBLUE;
+	else throw "Invalid color name";
+}
+
 const Color Color::RED(255,0,0);
 const Color Color::GREEN(0, 255, 0);
 const Color Color::BLUE(0, 0, 255);

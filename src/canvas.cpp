@@ -6,14 +6,12 @@ Canvas::Canvas (unsigned int m_width, unsigned int m_heigth)
 	this->m_heigth = m_heigth;
 	
 	// create a default background color
-	Color bkg_color = Color::WHITE;
-
-	this->m_bkg_color = &bkg_color;
+	this->m_bkg_color = Color::WHITE;
 	this->image = new color_t[ this->get_size_canvas() ]; 
 	this->clear();
 }
 
-Canvas::Canvas (unsigned int m_width, unsigned int m_heigth, Color * m_bkg_color)
+Canvas::Canvas (unsigned int m_width, unsigned int m_heigth, const Color & m_bkg_color)
 {
 	this->m_width = m_width;
 	this->m_heigth = m_heigth;
@@ -27,10 +25,18 @@ Canvas::~Canvas ()
 	delete image;
 }
 
+Canvas& Canvas::operator= (const Canvas & rhs)
+{
+	this->m_width = rhs.m_width;
+	this->m_heigth = rhs.m_heigth;
+	this->m_bkg_color = rhs.m_bkg_color;
+	return *this;
+}
+
 void Canvas::clear ()
 {
 	unsigned int size = this->get_size_canvas();
-	color_t * colors = this->m_bkg_color->get_color_value();
+	color_t * colors = m_bkg_color.get_color_value();
 
 	for (unsigned int i=0; i < size; i+=VALUES_PER_PIXEL)
 	{
@@ -48,6 +54,7 @@ void Canvas::add_new_shape (Shape *shape)
 { 	
 	std::cout << shape->to_string();
 	this->shapes.push_back(shape);
+	std::cout << this->shapes[shapes.size()-1]->to_string();
 }
 
 void Canvas::draw () 	
@@ -124,3 +131,12 @@ unsigned int Canvas::get_heigth ()
 
 unsigned int Canvas::get_size_canvas ()
 { return this->m_width * this->m_heigth * VALUES_PER_PIXEL; }
+
+void Canvas::set_color_bkg (const Color & color_bkg)
+{ 
+	this->m_bkg_color = color_bkg; 
+	this->clear();
+}
+
+void Canvas::set_shapes (std::vector<Shape*> shapes)
+{ this->shapes = shapes; }

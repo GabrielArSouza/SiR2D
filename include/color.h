@@ -77,6 +77,8 @@
 		
 			color_t * get_color_value ();
 
+			const Color& get_color(std::string name_color);
+
 			std::string to_string();
 	};
 
