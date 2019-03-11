@@ -76,9 +76,23 @@ void Canvas::color_pixel (POINT x, Color *color)
 
 void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 {
+	int init_pixel = this->get_position_pixel(x_axis, y_axis);
+
+	// Get a pixel color
+	color_t * color_index = color->get_color_value();
+
+	for (int i=0; i < VALUES_PER_PIXEL; i++)
+		this->image[init_pixel+i] = color_index[i];
+
+}
+
+int Canvas::get_position_pixel(int x_axis, int y_axis)
+{
 	if ( (unsigned int) x_axis > this->m_width || 
-		 (unsigned int) y_axis > this->m_heigth)
-		return;
+		 (unsigned int) y_axis > this->m_heigth ||
+		 (unsigned int) x_axis < 1 ||
+		 (unsigned int) y_axis < 1)
+		return 0;
 
 	/**
 	 * A imagem está armazena sequenciamente em um grande array
@@ -108,12 +122,7 @@ void Canvas::color_pixel (int x_axis, int y_axis, Color *color)
 	 */
 	int init_pixel = init_line_of_pixel + (y_axis-1) * VALUES_PER_PIXEL ;
 
-	// Get a pixel color
-	color_t * color_index = color->get_color_value();
-
-	for (int i=0; i < VALUES_PER_PIXEL; i++)
-		this->image[init_pixel+i] = color_index[i];
-
+	return init_pixel;
 }
 
 /**
@@ -140,3 +149,34 @@ void Canvas::set_color_bkg (const Color & color_bkg)
 
 void Canvas::set_shapes (std::vector<Shape*> shapes)
 { this->shapes = shapes; }
+
+void Canvas::antialising ()
+{
+	int sfilter = 3;
+	int somar=0, somag=0, somab=0;
+	int p_init = 0;
+	int gaussian[sfilter][sfilter] = {{1,2,1},{2,4,2},{1,2,1}};
+	
+	for (unsigned int i =1; i < m_width; i++) 	{
+		for (unsigned int j=1; j< m_heigth; j++) {
+			
+			// convolution
+			for (int k=0; k < sfilter; k++) {
+				for (int l=0; l < sfilter; l++) {
+					p_init = this->get_position_pixel(i+k, j+k);
+					
+					somar += this->image[p_init]*gaussian[i][j];
+					somag += this->image[p_init+1]*gaussian[i][j];
+					somab += this->image[p_init+2]*gaussian[i][j]; 
+				}
+			}
+
+			// apply result
+			p_init = this->get_position_pixel(i+1,j+1);
+			this->image[p_init] = somar/16;
+			this->image[p_init+1] = somag/16;
+			this->image[p_init+2] = somab/16;
+
+		}
+	}
+}
