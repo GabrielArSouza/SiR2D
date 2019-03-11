@@ -42,7 +42,7 @@ public:
 
 	virtual std::string to_string();
 	virtual Color& get_fill();
-	virtual POINT get_pfloodfill();
+	virtual std::vector<POINT> get_pfloodfill();
     // virtual void set_pfloodfill(POINT p);
 
 	bool is_floodfill();

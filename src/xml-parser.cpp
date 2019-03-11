@@ -131,9 +131,7 @@ void create_circle (Circle *&circle, XMLElement * element )
 	// Define a basic circle
 	if ( !point.empty() )
 	{
-		std::vector<std::string> point_axis;
-		boost::split(point_axis, point, [](char c){return c == ',';});
-		POINT u_point = POINT{std::stoi(point_axis[0]), std::stoi(point_axis[1])};
+		std::vector<POINT> u_point = parser_many_points(point);
 		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r), true, u_point);
 	}else {
 		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r));
@@ -225,17 +223,8 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 	else throw INVALID_POLYLINE;
 	// -----------------------------------
 	
-	std::vector<std::string> results;
-	boost::split(results, points, [](char c){return c == ' ';});
-	std::vector<POINT> polypoints;
-
-	std::string aux;
-	std::vector<std::string> u_point;
-	for (unsigned int i=0; i<results.size(); i++){
-		aux = results[i];
-		boost::split(u_point, aux, [](char c){return c == ',';});
-		polypoints.push_back(POINT{std::stoi(u_point[0]), std::stoi(u_point[1])});
-	}
+	// get all points of polyline
+	std::vector<POINT> polypoints = parser_many_points(points);
 
 	// check if is a polygon
 	bool is_polygon = false;
@@ -258,12 +247,9 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 	if (element->Attribute("pcolor") != NULL)
 		point = element->Attribute("pcolor");
 
-	// Define a basic circle
 	if ( !point.empty() )
 	{
-		std::vector<std::string> point_axis;
-		boost::split(point_axis, point, [](char c){return c == ',';});
-		POINT u_point = POINT{std::stoi(point_axis[0]), std::stoi(point_axis[1])};
+		std::vector<POINT> u_point = parser_many_points(point);
 		pl = new Polyline(polypoints, is_polygon, true, u_point);
 	}else {
 		pl = new Polyline(polypoints);
@@ -291,4 +277,24 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 			std::cerr << e.what() << '\n';
 		}
 	}
+}
+
+std::vector<POINT> parser_many_points (std::string points)
+{
+
+	// parser all points
+	std::vector<std::string> results;
+	boost::split(results, points, [](char c){return c == ' ';});
+	std::vector<POINT> polypoints;
+
+	// generate all points
+	std::string aux;
+	std::vector<std::string> u_point;
+	for (unsigned int i=0; i<results.size(); i++){
+		aux = results[i];
+		boost::split(u_point, aux, [](char c){return c == ',';});
+		polypoints.push_back(POINT{std::stoi(u_point[0]), std::stoi(u_point[1])});
+	}
+
+	return polypoints;
 }

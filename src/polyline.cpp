@@ -1,7 +1,7 @@
 #include "polyline.h"
 
 Polyline::Polyline( std::vector<Shape*> lines,bool is_polygon, 
-    bool floodfill , POINT p, const Color &color)
+    bool floodfill , std::vector<POINT> p, const Color &color)
     : Shape(color, floodfill, is_polygon)
 { 
     this->lines = lines; 
@@ -9,7 +9,7 @@ Polyline::Polyline( std::vector<Shape*> lines,bool is_polygon,
 }
 
 Polyline::Polyline( std::vector<POINT> points, bool is_polygon,
-     bool floodfill , POINT p,  const Color &color)
+     bool floodfill , std::vector<POINT> p,  const Color &color)
     : Shape(color, floodfill, is_polygon)
 { 
     POINT aux;
@@ -46,7 +46,7 @@ void Polyline::draw()
 std::string Polyline::to_string()
 {  return "I'm a polyline and my color is " + color.to_string() + "\n"; }
 
-POINT Polyline::get_pfloodfill(){
+std::vector<POINT> Polyline::get_pfloodfill(){
     return p_floodfill;
 }
 // void Polyline::set_pfloodfill(POINT p){

@@ -41,4 +41,6 @@ void create_line (Line *&line, XMLElement *element );
 
 void create_polyline (Polyline *&polyline, XMLElement *element);
 
+std::vector<POINT> parser_many_points (std::string points);
+
 #endif

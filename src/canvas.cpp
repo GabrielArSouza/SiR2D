@@ -64,8 +64,20 @@ void Canvas::draw ()
 		temp = shapes[i]->get_pixels();
 		for (unsigned int j=0; j < temp.size(); j++)
 			this->color_pixel(temp[j], shapes[i]->get_color());
+		
+		// apply fill
 		if (shapes[i]->is_floodfill())
-			this->floodfill(shapes[i]->get_pfloodfill(), this->m_bkg_color, shapes[i]->get_fill());
+		{
+			std::vector<POINT> p = shapes[i]->get_pfloodfill();
+			Color c;
+			for (unsigned int k=0; k<p.size(); k++)
+			{
+				// get pixel color
+				int pos = get_position_pixel(p[k].x, p[k].y);
+				c = Color(image[pos], image[pos+1], image[pos+2]);
+				this->floodfill(p[k], c, shapes[i]->get_fill());
+			}
+		}
 	}
 
 	this->antialising();

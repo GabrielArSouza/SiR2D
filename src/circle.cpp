@@ -4,7 +4,7 @@
  * Constructors
  */
 #include<iostream>
-Circle::Circle(POINT center, int radius, bool floodfill, POINT p) 
+Circle::Circle(POINT center, int radius, bool floodfill, std::vector<POINT> p) 
     : Shape(Color::BLACK, floodfill, true)
 { 
     this->center = center;
@@ -13,7 +13,8 @@ Circle::Circle(POINT center, int radius, bool floodfill, POINT p)
     this->p_floodfill = p;
 }
 
-Circle::Circle(POINT center, int radius, const Color &color, bool floodfill, POINT p) 
+Circle::Circle(POINT center, int radius, const Color &color, 
+    bool floodfill, std::vector<POINT> p) 
     : Shape(color, floodfill, true)
 { 
     this->center = center;
@@ -23,7 +24,8 @@ Circle::Circle(POINT center, int radius, const Color &color, bool floodfill, POI
 }
 
 
-Circle::Circle(POINT center, int radius, const Color &color, const Color &fill, bool floodfill, POINT p)
+Circle::Circle(POINT center, int radius, const Color &color, 
+    const Color &fill, bool floodfill, std::vector<POINT> p)
     :Shape(color, floodfill, true)
 {
     this->center = center;
@@ -103,7 +105,7 @@ void Circle::set_fill (const Color & f)
 std::string Circle::to_string()
 {  return "I'm a circle and my color is " + color.to_string() + "\n"; }
 
-POINT Circle::get_pfloodfill(){
+std::vector<POINT> Circle::get_pfloodfill(){
     return p_floodfill;
 }
 // void Circle::set_pfloodfill(POINT p){

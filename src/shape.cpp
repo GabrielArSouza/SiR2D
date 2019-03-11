@@ -34,8 +34,11 @@ bool Shape::is_floodfill()
 bool Shape::is_polygon()
 { return polygon; }
 
-POINT Shape::get_pfloodfill()
-{ return POINT{0,0};}
+std::vector<POINT> Shape::get_pfloodfill()
+{  
+    std::vector<POINT> p = {POINT{0,0}};
+    return p;
+}
 
 // void set_pfloodfill(POINT p)
 // {}
