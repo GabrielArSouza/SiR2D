@@ -51,11 +51,7 @@ void Canvas::clear ()
 
 #include<iostream>
 void Canvas::add_new_shape (Shape *shape)
-{ 	
-	std::cout << shape->to_string();
-	this->shapes.push_back(shape);
-	std::cout << this->shapes[shapes.size()-1]->to_string();
-}
+{ this->shapes.push_back(shape); }
 
 void Canvas::draw () 	
 {

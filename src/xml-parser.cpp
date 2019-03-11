@@ -26,7 +26,6 @@ void parser_xml (std::string filename, std::string imagename)
 		
 		if (pRoot->Attribute("color") != NULL)
 		{
-			std::cout << "entrou\n";
 			color_bkg = pRoot->Attribute("color");
 			try	{
 				Color color;
@@ -60,9 +59,29 @@ void parser_xml (std::string filename, std::string imagename)
 				}
 			}
 			else if (type.compare("line") == 0)
-				std::cout << "This is a line\n";
+			{
+				try {
+
+					Line *line;
+					create_line(line, pRoot);
+					canvas.add_new_shape(line);
+
+				} catch(std::string e){
+					std::cout << e << std::endl;
+				}
+			}
 			else if (type.compare("triangle") == 0)
 				std::cout << "This is a triangle\n";
+			else if (type.compare("polyline") == 0)
+			{
+				try{
+					Polyline * pl;
+					create_polyline(pl, pRoot);
+					canvas.add_new_shape(pl);
+				}catch(std::string e){
+					std::cout << e << std::endl;
+				}
+			}
 			
 			// Get next child
 			pRoot = pRoot->NextSiblingElement( "shape" );
@@ -132,4 +151,100 @@ void create_circle (Circle *&circle, XMLElement * element )
 		}
 	}
 	// -------------------------------------------------
+}
+
+void create_line (Line *&line, XMLElement *element )
+{
+	// Attributes of a line
+	std::string x1, y1, x2, y2, stroke;
+	
+	// -----------------------------------
+	// Check required attributes
+	// -----------------------------------
+	if (element->Attribute("x1") != NULL)
+		x1 = element->Attribute("x1");
+	else throw INVALID_LINE;
+
+	if (element->Attribute("y1") != NULL)
+		y1 = element->Attribute("y1");
+	else throw INVALID_LINE;
+
+	if (element->Attribute("x2") != NULL)
+		x2  = element->Attribute("x2");
+	else throw INVALID_LINE;
+
+	if (element->Attribute("y2") != NULL)
+		y2  = element->Attribute("y2");
+	else throw INVALID_LINE;
+	// -----------------------------------
+	
+	// ----------------------------------------
+	// Try get line color
+	// ----------------------------------------
+	if (element->Attribute("stroke") != NULL)
+		stroke = element->Attribute("stroke");
+
+	line = new Line(POINT{std::stoi(x1), std::stoi(y1)}, 
+					POINT{std::stoi(x2), std::stoi(y2)});
+
+	// -----------------------------------------------
+	// Check and get color 
+	// -----------------------------------------------
+	if (!stroke.empty()){
+		try {
+			Color c_stroke;
+			c_stroke = c_stroke.get_color(stroke);
+			line->set_color(c_stroke);	
+		}catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+}
+
+void create_polyline (Polyline *&pl, XMLElement *element)
+{
+	// Attributes of a polyline
+	std::string points, stroke;
+	
+	// -----------------------------------
+	// Check required attributes
+	// -----------------------------------
+	if (element->Attribute("points") != NULL)
+		points = element->Attribute("points");
+	else throw INVALID_POLYLINE;
+	// -----------------------------------
+	
+	std::vector<std::string> results;
+	boost::split(results, points, [](char c){return c == ' ';});
+	std::vector<POINT> polypoints;
+
+	std::string aux;
+	std::vector<std::string> u_point;
+	for (unsigned int i=0; i<results.size(); i++){
+		aux = results[i];
+		boost::split(u_point, aux, [](char c){return c == ',';});
+		polypoints.push_back(POINT{std::stoi(u_point[0]), std::stoi(u_point[1])});
+	}
+
+	pl = new Polyline(polypoints);
+
+	// ----------------------------------------
+	// Try get line color
+	// ----------------------------------------
+	if (element->Attribute("stroke") != NULL)
+		stroke = element->Attribute("stroke");
+
+	// -----------------------------------------------
+	// Check and get color 
+	// -----------------------------------------------
+	if (!stroke.empty()){
+		try {
+			Color c_stroke;
+			c_stroke = c_stroke.get_color(stroke);
+			pl->set_color(c_stroke);	
+		}catch(const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
+	}
 }

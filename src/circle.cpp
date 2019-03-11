@@ -7,7 +7,6 @@
 Circle::Circle(POINT center, int radius) 
     : Shape(Color::BLACK)
 { 
-    std::cout << "entrou no construtor black\n";
     this->center = center;
     this->radius = radius;
     this->fill = Color::WHITE;
@@ -25,7 +24,6 @@ Circle::Circle(POINT center, int radius, const Color &color)
 Circle::Circle(POINT center, int radius, const Color &color, const Color &fill)
     :Shape(color)
 {
-    std::cout << "entrou no contrutor correto\n";
     this->center = center;
     this->radius = radius;
     this->fill = fill;
