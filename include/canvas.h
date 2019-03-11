@@ -109,6 +109,10 @@ public:
 
 	void set_color_bkg (const Color & color_bkg);
 	void set_shapes (std::vector<Shape*> shapes);
+	void antialising ();
+	int get_position_pixel(int x, int y);
+
+	void floodfill (POINT init, Color & old, Color & fill);
 
 };
 

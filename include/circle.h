@@ -14,6 +14,7 @@ private:
     POINT center;
 
     Color fill;
+    std::vector<POINT> p_floodfill;
 
 public:
 
@@ -22,7 +23,8 @@ public:
      * 
      * @param radius the radius
      */
-    Circle(POINT center = POINT{0,0}, int radius = 0);
+    Circle(POINT center = POINT{0,0}, int radius = 0, 
+           bool floodfill = false, std::vector<POINT> p = {POINT{0,0}});
 
     /**
      * @brief Construct a new Circle object
@@ -30,9 +32,11 @@ public:
      * @param radius the radius
      * @param color the color border and backgroud
      */
-    Circle(POINT center, int radius, const Color &color);
+    Circle(POINT center, int radius, const Color &color, 
+           bool floodfill = false, std::vector<POINT> p = {POINT{0,0}});
 
-    Circle(POINT center, int radius, const Color &color, const Color &fill);
+    Circle(POINT center, int radius, const Color &color, const Color &fill, 
+           bool floodfill = false, std::vector<POINT> p = {POINT{0,0}});
 
     /**
      * @brief Destroy the Circle object
@@ -66,6 +70,11 @@ public:
     void set_fill (const Color & fill);
 
     std::string to_string();
+
+    std::vector<POINT> get_pfloodfill();
+//     void set_pfloodfill(POINT p);
+
+    Color& get_fill();
 };
 
 #endif
