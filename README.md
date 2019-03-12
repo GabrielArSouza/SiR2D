@@ -22,6 +22,6 @@ $ ./exe.out <xml_file> <image_name>
 
 The following colors can be used in scene description:
 
-###<span style="color:rgb(107,79,187)">red - rgb(255,0,0)</span>
+<span style="color:rgb(255,0,0)">red</span>
 
 ## How to describe a canvas
