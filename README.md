@@ -36,4 +36,16 @@ The following colors can be used in scene description:
 | skyblue  | `(141, 207, 251)` | ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/skyblue.png) |
 
 ## How to describe a scene
-Initially, it is necessary introduce a scene through of tag `<scene></scene>`. A shape is defined by tag `<shape></shape>`, it is necessary specify the shape type (line, polyline or circle), for example: `<shape type="circle" ...></shape>`. Each shape has a specific descriptions based on the [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) file format.
+Initially, it is necessary introduce a scene through of tag `<scene></scene>`. A scene must necessarily have a canvas `<canvas></canvas>`. A shape is defined by tag `<shape></shape>`, it is necessary specify the shape type (line, polyline or circle), for example: `<shape type="circle" ...></shape>`. Each shape has a specific descriptions based on the [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) file format. A basic document is shown below.
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="red" pcolor="100,100"></shape>
+	<shape type="polyline" points="190,30 190,170 10,100 190,30" 
+		   stroke="black" fill="skyblue" pcolor="185,35 12,100 100,100" polygon="true">
+	</shape>
+</scene>
+~~~~
