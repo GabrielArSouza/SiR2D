@@ -140,6 +140,7 @@ Each tag is composed by required and optional settings. If a required setting is
 ~~~~
 
 ##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/circle1.png)
 
 ~~~~
 <?xml version=\"1.0\"?>
@@ -151,5 +152,5 @@ Each tag is composed by required and optional settings. If a required setting is
 ~~~~
 
 ##### Output
-
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/circle2.png)
 ### Polyline
