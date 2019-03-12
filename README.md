@@ -166,7 +166,59 @@ Each tag is composed by required and optional settings. If a required setting is
 
 ##### Output
 ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/circle2.png)
+
 ### Polyline
+
+* Required settings
+	-  `points` : The set of point that define a polyline
+* Optional settings
+	-  `stroke` : The Polyline's border color (default: black)
+	-  `polygon`: Use the value _true_ if polyline define a polygon and _false_ othewise (default: false). If polygon value is _false_, no fill algorithm will be used.
+	-  `fill`   : The Polyline's fill color (default: white)
+	-  `pcolor` : Define one or more points for use the flood fill algorithm, if not defined, the scan line algorithm be use.
+
+#### Examples
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="polyline"  points="0,40 40,40 40,80 80,80 80,120 120,120 120,160 160,160 160,180" ></shape>
+</scene>	
+~~~~
+
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/polyline1.png)
+
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="polyline" points="190,30 190,170 10,100 190,30" stroke="boldgreen"></shape>
+</scene>	
+~~~~
+
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/polyline2.png)
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="polyline" points="190,30 190,170 10,100 190,30" 
+	       stroke="black" fill="skyblue" pcolor="185,35 12,100 100,100" polygon="true">
+	</shape>
+</scene>	
+~~~~
+
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/polyline3.png)
+
+
 
 
 ###### © 2019 Souza, Gabriel A. Powered by [TinyXML-2](https://github.com/leethomason/tinyxml2)
