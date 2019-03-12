@@ -15,7 +15,12 @@ $ make
 It to run the program is necessary specify an xml file. You can set a name for the image optionally.
 
 ~~~~
-    $ ./exe.out <xml_file> <image_name>
+$ ./exe.out <xml_file> <image_name>
 ~~~~
+
+## Color Paletter
+
+The following colors can be used in scene description:
+> * <span style="color:rgb(255,0,0); font-family:Georgia; font-size:2em;">red - rgb(255,0,0)</span>
 
 ## How to describe a canvas
