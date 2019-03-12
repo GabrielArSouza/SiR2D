@@ -22,6 +22,8 @@ $ ./exe.out <xml_file> <image_name>
 
 The following colors can be used in scene description:
 
-<span style="color:rgb(255,0,0)">red</span>
+> * red: 
+![alt text][red]
+[red]: https://github.com/GabrielArSouza/SiR2D/blob/master/common/red.png "red color"
 
 ## How to describe a canvas
