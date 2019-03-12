@@ -112,4 +112,13 @@ Each tag is composed by required and optional settings. If a required setting is
 
 ### Circle
 
+* Required settings
+	-  `cx` : The x axis value of the middle point circle
+	-  `cy` : The y axis value of the middle point circle
+	-  `r`  : The Circle's radius
+* Optional settings
+	-  `stroke` : The Circle's border color (default: black)
+	-  `fill`   : The Circle's fill color (default: white)
+	-  `pcolor` : Define a point for use the flood fill algorithm, if not defined, the scan line algorithm be use.
+
 ### Polyline
