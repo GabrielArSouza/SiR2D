@@ -4,31 +4,34 @@
  * Constructors
  */
 #include<iostream>
-Circle::Circle(POINT center, int radius) 
-    : Shape(Color::BLACK)
-{ 
-    std::cout << "entrou no construtor black\n";
-    this->center = center;
-    this->radius = radius;
-    this->fill = Color::WHITE;
-}
-
-Circle::Circle(POINT center, int radius, const Color &color) 
-    : Shape(color)
+Circle::Circle(POINT center, int radius, bool floodfill, std::vector<POINT> p) 
+    : Shape(Color::BLACK, floodfill, true)
 { 
     this->center = center;
     this->radius = radius;
     this->fill = Color::WHITE;
+    this->p_floodfill = p;
+}
+
+Circle::Circle(POINT center, int radius, const Color &color, 
+    bool floodfill, std::vector<POINT> p) 
+    : Shape(color, floodfill, true)
+{ 
+    this->center = center;
+    this->radius = radius;
+    this->fill = Color::WHITE;
+    this->p_floodfill = p;
 }
 
 
-Circle::Circle(POINT center, int radius, const Color &color, const Color &fill)
-    :Shape(color)
+Circle::Circle(POINT center, int radius, const Color &color, 
+    const Color &fill, bool floodfill, std::vector<POINT> p)
+    :Shape(color, floodfill, true)
 {
-    std::cout << "entrou no contrutor correto\n";
     this->center = center;
     this->radius = radius;
     this->fill = fill;
+    this->p_floodfill = p;
 }
 
 Circle::~Circle(){}
@@ -101,3 +104,13 @@ void Circle::set_fill (const Color & f)
 
 std::string Circle::to_string()
 {  return "I'm a circle and my color is " + color.to_string() + "\n"; }
+
+std::vector<POINT> Circle::get_pfloodfill(){
+    return p_floodfill;
+}
+// void Circle::set_pfloodfill(POINT p){
+//     this->p_floodfill = p;
+// }
+
+Color& Circle::get_fill()
+{ return this->fill; }

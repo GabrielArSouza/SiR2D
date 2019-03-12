@@ -13,10 +13,13 @@ protected:
 
 	Color color;
 	std::vector<POINT> pixels;
+	
+	bool floodfill;
+	bool polygon;
 
 public:
 
-	Shape (const Color &color);
+	Shape (const Color &color, bool floodfill = false, bool polygon = false);
 
 	/**
 	 * @brief      Destroys the Shape.
@@ -38,6 +41,14 @@ public:
 	std::vector<POINT> get_pixels ();
 
 	virtual std::string to_string();
+	virtual Color& get_fill();
+	virtual std::vector<POINT> get_pfloodfill();
+    // virtual void set_pfloodfill(POINT p);
+
+	bool is_floodfill();
+    void set_floodfill(bool value);
+
+	bool is_polygon();
 };
 
 #endif

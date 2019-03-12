@@ -27,19 +27,19 @@ Triangle::~Triangle(){}
  {
     std::vector<POINT> aux;
 
-    Line l1 = Line (&p1, &p2, color);
+    Line l1 = Line (p1, p2, color);
     l1.draw();
     aux = l1.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
         this->pixels.push_back(*it);
 
-    Line l2 = Line (&p1, &p3, color);
+    Line l2 = Line (p1, p3, color);
     l2.draw();
     aux = l2.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
         this->pixels.push_back(*it);
    
-    Line l3 = Line (&p2, &p3, color);    
+    Line l3 = Line (p2, p3, color);    
     l3.draw();
     aux = l3.get_pixels();
     for(std::vector<POINT>::iterator it = aux.begin(); it != aux.end(); ++it)
