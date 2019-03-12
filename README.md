@@ -54,11 +54,32 @@ Each tag is composed by required and optional settings. If a required setting is
 ### Canvas
 
 * Required settings
-	- height : The canvas's height
-	- width  : The canvas's width
+	-   `height` : The canvas's height
+	-   `width`  : The canvas's width
 * Optional settings
-	- color  : The canvas's background color (default: white)
-	
+	-   `color`  : The canvas's background color (default: white)
+
+#### Example
+
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200"></canvas>
+	...
+</scene>
+~~~~
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="red"></canvas>
+	...
+</scene>
+~~~~
+
 ### Line
 
 
