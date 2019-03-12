@@ -21,6 +21,6 @@ $ ./exe.out <xml_file> <image_name>
 ## Color Paletter
 
 The following colors can be used in scene description:
-> * <span style="color:red; font-family:Georgia; font-size:2em;">red - rgb(255,0,0)</span>
+<span style="color:red; font-family:Georgia; font-size:2em;">red - rgb(255,0,0)</span>
 
 ## How to describe a canvas
