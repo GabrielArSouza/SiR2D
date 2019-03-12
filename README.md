@@ -126,6 +126,30 @@ Each tag is composed by required and optional settings. If a required setting is
 * Optional settings
 	-  `stroke` : The Circle's border color (default: black)
 	-  `fill`   : The Circle's fill color (default: white)
-	-  `pcolor` : Define a point for use the flood fill algorithm, if not defined, the scan line algorithm be use.
+	-  `pcolor` : Define one or more points for use the flood fill algorithm, if not defined, the scan line algorithm be use.
+
+#### Examples
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="circle" cx="100" cy="100" r="80"></shape>
+</scene>	
+~~~~
+
+##### Output
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="pink" pcolor="100,100"></shape>
+</scene>	
+~~~~
+
+##### Output
 
 ### Polyline
