@@ -1,7 +1,0 @@
-Instructiosn 
----------------
-
-- Utilizar padrão SVG (XML)
-- antialias
-- Preenchimento de regiões 
-- 
