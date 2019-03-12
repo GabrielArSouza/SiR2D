@@ -70,6 +70,10 @@ Each tag is composed by required and optional settings. If a required setting is
 </scene>
 ~~~~
 
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/line1.png)
+
+
 ~~~~
 <?xml version=\"1.0\"?>
 <!DOCTYPE PLAY SYSTEM play.dtd>
@@ -78,6 +82,10 @@ Each tag is composed by required and optional settings. If a required setting is
 	...
 </scene>
 ~~~~
+
+
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/line2.png)
 
 ### Line
 
