@@ -22,9 +22,9 @@ $ ./exe.out <xml_file> <image_name>
 
 The following colors can be used in scene description:
 
-| Name          | RGB code      | View  |
-| ------------- |:-------------:| -----:|
-| red           | `(255,0,0)`   |  ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/red.png)|
+| Name | RGB | View |
+| ---- | --- | ---- |
+| red  | `(255,0,0)` | ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/red.png) |
 
 
 ## How to describe a canvas
