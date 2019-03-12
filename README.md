@@ -48,3 +48,20 @@ Initially, it is necessary introduce a scene through of tag `<scene></scene>`. A
 	<shape type="line" ... ></shape>
 </scene>
 ~~~~
+
+Each tag is composed by required and optional settings. If a required setting is not defined, a exception is thrown.
+
+### Canvas
+
+* Required settings
+	- height : The canvas's height
+	- width  : The canvas's width
+* Optional settings
+	- color  : The canvas's background color (default: white)
+	
+### Line
+
+
+### Circle
+
+### Polyline
