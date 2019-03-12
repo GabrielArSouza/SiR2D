@@ -54,10 +54,10 @@ Each tag is composed by required and optional settings. If a required setting is
 ### Canvas
 
 * Required settings
-	<p>  `height` : The canvas's height</p>
-	<p>  `width`  : The canvas's width</p>
+	-<p>  `height` : The canvas's height </p>
+	-<p>  `width`  : The canvas's width  </p>
 * Optional settings
-	<p>  `color`  : The canvas's background color (default: white)</p>
+	-<p>  `color`  : The canvas's background color (default: white)</p>
 
 #### Examples
 
