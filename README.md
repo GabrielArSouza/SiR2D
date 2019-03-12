@@ -43,9 +43,8 @@ Initially, it is necessary introduce a scene through of tag `<scene></scene>`. A
 <!DOCTYPE PLAY SYSTEM play.dtd>
 <scene>
 	<canvas height="200" width="200" color="white"></canvas>
-	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="red" pcolor="100,100"></shape>
-	<shape type="polyline" points="190,30 190,170 10,100 190,30" 
-		   stroke="black" fill="skyblue" pcolor="185,35 12,100 100,100" polygon="true">
-	</shape>
+	<shape type="circle" ... ></shape>
+	<shape type="polyline" ... "></shape>
+	<shape type="line" ... ></shape>
 </scene>
 ~~~~
