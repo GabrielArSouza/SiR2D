@@ -4,15 +4,18 @@ Simple Rasterizer - 2D is a program that takes in the description of vector shap
 
 The SiR2D draw basic primitives such as Line, Circle and Polylines, as well as algorithms to fill in those primitives with solid colors. A color palette comes with 10 standard colors that can be easily used.
 
-## How to execute SiR2D
+## How to compile
 
-| Compile       | $ make       |
-| ------------- |:------------:|
-| Execute       | $ ./exe.out <xml_file> <image_name> |
-
-## How to Execute
 ~~~~
-    $ ./exe.out
+$ make
+~~~~
+
+## How to execute
+
+It to run the program is necessary specify an xml file. You can set a name for the image optionally.
+
+~~~~
+    $ ./exe.out <xml_file> <image_name>
 ~~~~
 
 ## How to describe a canvas
