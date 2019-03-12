@@ -61,7 +61,6 @@ Each tag is composed by required and optional settings. If a required setting is
 
 #### Examples
 
-
 ~~~~
 <?xml version=\"1.0\"?>
 <!DOCTYPE PLAY SYSTEM play.dtd>
@@ -82,6 +81,34 @@ Each tag is composed by required and optional settings. If a required setting is
 
 ### Line
 
+* Required settings
+	-  `x1` : The x axis value of the init point
+	-  `y1` : The y axis value of the init point
+	-  `x2` : The x axis value of the target point
+	-  `y2` : The y axis value of the target point
+* Optional settings
+	-  `stroke`  : The Line's border color (default: black)
+
+#### Examples
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="line" x1="10" y1="10" x2="135" y2="180"></shape>
+</scene>
+~~~~
+
+
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+	<canvas height="200" width="200" color="white"></canvas>
+	<shape type="line" x1="10" y1="10" x2="135" y2="180" stroke="blue"></shape>
+</scene>
+~~~~
 
 ### Circle
 
