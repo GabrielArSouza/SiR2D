@@ -4,6 +4,19 @@ Simple Rasterizer - 2D is a program that takes in the description of vector shap
 
 The SiR2D draw basic primitives such as Line, Circle and Polylines, as well as algorithms to fill in those primitives with solid colors. A color palette comes with 10 standard colors that can be easily used.
 
+## Dependencies
+
+For execute this software, the `Boost c++ libaries` is necessary. If `Boost` is not installed on your PC, follow the steps:
+
+1. Log on to the computer as the root user or as a user with sudo permissions.
+2. Download the Boost C++ libraries. For example, go to [Boost C++ libaries](https://sourceforge.net/projects/boost/files/boost/1.66.0/), and download `boost_1_66_0.zip`.
+3. Decompress `boost_1_66_0.zip`. For example, go to the directory where you downloaded `boost_1_66_0.zip`, and enter the following command: `unzip boost_1_66_0.zip`.
+4. Go to the `boost_1_66_0` directory.
+5. Enter the following command to build the installer: `./bootstrap.sh`.
+6. Enter the following command to run the installer: `./b2 install`.
+
+Reference [IBM Knowledge Center](https://www.ibm.com/support/knowledgecenter/en/SSWTQQ_1.0.0/com.ibm.swg.ba.cognos.trade_analytics.1.0.0.doc/t_trd_installboost.html)
+
 ## How to compile
 
 ~~~~
@@ -154,3 +167,6 @@ Each tag is composed by required and optional settings. If a required setting is
 ##### Output
 ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/circle2.png)
 ### Polyline
+
+
+###### © 2019 Souza, Gabriel A. Powered by [TinyXML-2](https://github.com/leethomason/tinyxml2)
