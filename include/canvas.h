@@ -7,6 +7,20 @@
 #include "color.h"
 #include "common.h"
 #include "shape.h"
+#include "polyline.h"
+
+typedef struct Edge {
+
+    int yMin;
+	int yMax;
+	int xMin;
+
+	int x_remains;
+	int m;
+	int m_denominator;
+	int m_remains;
+
+} Edge;
 
 class Canvas {
 
@@ -113,7 +127,6 @@ public:
 	int get_position_pixel(int x, int y);
 
 	void floodfill (POINT init, Color & old, Color & fill);
-
 };
 
 #endif
