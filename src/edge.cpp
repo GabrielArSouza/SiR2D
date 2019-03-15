@@ -2,6 +2,7 @@
 
 Edge::Edge( Line *line )
 {
+
     POINT a = line->get_p1();
     POINT b = line->get_p2();
 
@@ -12,23 +13,20 @@ Edge::Edge( Line *line )
     if (a.y <= b.y){ 
         this->yMin = a.y;
         this->yMax = b.y;
+        this->xMin = a.x;
+
+        deltaX = b.x - a.x;
         deltaY = b.y - a.y;
     }else {
         this->yMin = b.y;
         this->yMax = a.y;
+        this->xMin = b.x;
+
+        deltaX = a.x - b.x;
         deltaY = a.y - b.y;
     }
 
     this->x_remains = 0;
-
-    // find the xMin and deltaX
-    if (a.x <= b.x){
-        this->xMin = a.x;
-        deltaX = b.x - a.x;
-    } else {
-        this->xMin = b.x;
-        deltaX = a.x - b.x;
-    }
 
     if (deltaX != 0 && deltaY != 0){
         int gcd = std::__gcd(deltaX, deltaY);
@@ -41,6 +39,8 @@ Edge::Edge( Line *line )
         m_remains = 0;
     }
 }
+
+Edge::~Edge(){}
 
 void Edge::increment()
 {
@@ -57,5 +57,15 @@ void Edge::increment()
             xMin--;
         }
     }
+}
 
+std::string  Edge::to_string ()
+{
+    std::string str = "Edge [xMin, yMin]:";
+    str += "[" + std::to_string(xMin); 
+    str += "," + std::to_string(yMin);
+    str += "]\n";
+    str += "yMax = " + std::to_string(yMax) + "\n";
+
+    return str; 
 }

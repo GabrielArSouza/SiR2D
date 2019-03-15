@@ -10,7 +10,7 @@ Circle::Circle(POINT center, int radius, bool floodfill, std::vector<POINT> p)
     this->center = center;
     this->radius = radius;
     this->fill = Color::WHITE;
-    this->p_floodfill = p;
+    p_floodfill = {center};
 }
 
 Circle::Circle(POINT center, int radius, const Color &color, 
@@ -20,7 +20,8 @@ Circle::Circle(POINT center, int radius, const Color &color,
     this->center = center;
     this->radius = radius;
     this->fill = Color::WHITE;
-    this->p_floodfill = p;
+    
+    p_floodfill = {center};
 }
 
 
@@ -31,7 +32,7 @@ Circle::Circle(POINT center, int radius, const Color &color,
     this->center = center;
     this->radius = radius;
     this->fill = fill;
-    this->p_floodfill = p;
+    p_floodfill = {center};
 }
 
 Circle::~Circle(){}

@@ -43,8 +43,8 @@ public:
 	virtual std::string to_string();
 	virtual Color& get_fill();
 	virtual std::vector<POINT> get_pfloodfill();
-    // virtual void set_pfloodfill(POINT p);
-
+    virtual std::vector<POINT> scanline(int heght);
+	
 	bool is_floodfill();
     void set_floodfill(bool value);
 

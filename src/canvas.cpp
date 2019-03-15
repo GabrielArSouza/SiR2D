@@ -78,6 +78,10 @@ void Canvas::draw ()
 				this->floodfill(p[k], c, shapes[i]->get_fill());
 			}
 		}
+		// else if(shapes[i]->is_polygon()){
+		// 	for (POINT p : shapes[i]->scanline(this->m_heigth))
+		// 		this->color_pixel(p, &shapes[i]->get_fill());
+		// }
 	}
 
 	this->antialising();

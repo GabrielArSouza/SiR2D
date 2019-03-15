@@ -4,6 +4,7 @@
 #include "line.h"
 #include <cstdlib>
 #include <algorithm> 
+#include <string>
 
 class Edge {
 
@@ -24,6 +25,8 @@ public:
     ~Edge();
 
     void increment();
+
+    std::string to_string ();
 };
 
 #endif
