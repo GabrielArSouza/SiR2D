@@ -10,6 +10,10 @@
 #include "polyline.h"
 #include "edge.h"
 
+/**
+ * @brief The Canvas class
+ * 
+ */
 class Canvas {
 
 private:

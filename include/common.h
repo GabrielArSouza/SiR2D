@@ -10,10 +10,20 @@
 
 #include "color.h"
 
+/**
+ * @brief represent a image point
+ * 
+ */
 typedef struct POINT {
     
     int x,y;
   
+    /**
+     * @brief overload equals operator
+     * 
+     * @param rhs    the other Point
+     * @return true if equals, false otherwise
+     */
     bool operator== (POINT &rhs)
     {
         if ((x == rhs.x) && (y == rhs.y))
@@ -21,6 +31,12 @@ typedef struct POINT {
         return false;
     }
 
+    /**
+     * @brief   overload assignment operator
+     * 
+     * @param rhs    the other operator
+     * @return POINT&  the new point object
+     */
     POINT & operator= (const POINT &rhs)
     { x = rhs.x; y = rhs.y; return *this;}
 
