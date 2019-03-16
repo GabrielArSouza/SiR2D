@@ -7,16 +7,22 @@
 #include "color.h"
 #include "common.h"
 #include "shape.h"
+#include "polyline.h"
+#include "edge.h"
 
+/**
+ * @brief The Canvas class
+ * 
+ */
 class Canvas {
 
 private:
 	
-	unsigned int m_width;
-	unsigned int m_heigth;
-	Color m_bkg_color;
-	color_t * image;
-	std::vector<Shape*> shapes;
+	unsigned int m_width;       //<! width of image
+	unsigned int m_heigth;      //<! height of image
+	Color m_bkg_color;          //<! canvas background color
+	color_t * image;            //<! image representation (a array of unsigned int)
+	std::vector<Shape*> shapes; //<! all shapes in canvas
 
 public:
 
@@ -31,9 +37,9 @@ public:
 	/**
 	 * @brief      Constructs the object.
 	 *
-	 * @param[in]  m_width      The m width
-	 * @param[in]  m_heigth     The m heigth
-	 * @param      m_bkg_color  The m bkg color
+	 * @param[in]  m_width      The width
+	 * @param[in]  m_heigth     The heigth
+	 * @param      m_bkg_color  The background color
 	 */
 	Canvas (unsigned int m_width, unsigned int m_heigth, const Color & m_bkg_color);
 
@@ -49,6 +55,12 @@ public:
 	 */
 	Canvas (Canvas && clone);
 
+	/**
+	 * @brief the overload of assignment operator
+	 *  
+	 * @param rhs  the new Canvas
+	 * @return Canvas&  A new Canvas equals rhs
+	 */
 	Canvas& operator= (const Canvas & rhs);
 
 	/**
@@ -77,6 +89,12 @@ public:
 	 */
 	void color_pixel (int x_axis, int y_axis, Color *color);
 
+	/**
+	 * @brief  add a color in a pixel
+	 * 
+	 * @param x     a point of pixel
+	 * @param color the color of pixel
+	 */
 	void color_pixel (POINT x, Color * color);
 
 	/**
@@ -107,11 +125,42 @@ public:
 	 */
 	unsigned int get_size_canvas ();
 
+	/**
+	 * @brief Set the color bkg object
+	 * 
+	 * @param color_bkg the background color
+	 */
 	void set_color_bkg (const Color & color_bkg);
+	
+	/**
+	 * @brief Set the shapes object
+	 * 
+	 * @param shapes The new vector of shapes
+	 */
 	void set_shapes (std::vector<Shape*> shapes);
+	
+	/**
+	 * @brief apply antialising algorithm in image
+	 * 
+	 */
 	void antialising ();
+
+	/**
+	 * @brief Get the position pixel object
+	 * 
+	 * @param x the x axis
+	 * @param y the y axis
+	 * @return int the pixel's position in image array
+	 */
 	int get_position_pixel(int x, int y);
 
+	/**
+	 * @brief  Algorith of filling
+	 * 
+	 * @param init  The init point
+	 * @param old   The old color
+	 * @param fill  The new color
+	 */
 	void floodfill (POINT init, Color & old, Color & fill);
 
 };

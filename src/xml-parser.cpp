@@ -252,7 +252,7 @@ void create_polyline (Polyline *&pl, XMLElement *element)
 		std::vector<POINT> u_point = parser_many_points(point);
 		pl = new Polyline(polypoints, is_polygon, true, u_point);
 	}else {
-		pl = new Polyline(polypoints);
+		pl = new Polyline(polypoints, is_polygon, false);
 	}
 
 	// -----------------------------------------------

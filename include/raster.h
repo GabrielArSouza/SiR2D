@@ -5,12 +5,16 @@
 #include <fstream>
 #include <iostream>
 
+/**
+ * @brief the class for raster
+ * 
+ */
 class Raster {
 
 private:
-	Canvas * canvas;
+	Canvas * canvas; //<! the canvas
 
-	std::string filename = "out";
+	std::string filename = "out"; //<! file name
 
 public:
 

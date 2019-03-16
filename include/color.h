@@ -16,6 +16,10 @@
 		b = 2, //<! Blue
 	};
 
+	/**
+	 * @brief A class for color object
+	 * 
+	 */
 	class Color {
 
 		public:
@@ -75,10 +79,26 @@
 			 */
 			bool operator== (const Color & rhs);
 		
+			/**
+			 * @brief Get the color value object
+			 * 
+			 * @return color_t* the unsigned int array
+			 */
 			color_t * get_color_value ();
 
+			/**
+			 * @brief Get the color object
+			 * 
+			 * @param name_color  the color name
+			 * @return const Color&  the object of color
+			 */
 			const Color& get_color(std::string name_color);
 
+			/**
+			 * @brief description of class
+			 * 
+			 * @return std::string the description string
+			 */
 			std::string to_string();
 	};
 

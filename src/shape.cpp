@@ -40,5 +40,4 @@ std::vector<POINT> Shape::get_pfloodfill()
     return p;
 }
 
-// void set_pfloodfill(POINT p)
-// {}
+std::vector<POINT> Shape::scanline(int heght){ return {POINT{0,0}}; }

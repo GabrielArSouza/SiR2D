@@ -37,10 +37,28 @@ void parser_xml (std::string filename, std::string imagename);
  */
 void create_circle (Circle *&circle, XMLElement *element );
 
+/**
+ * @brief Create a line object
+ * 
+ * @param line the line object
+ * @param element the xml element
+ */
 void create_line (Line *&line, XMLElement *element );
 
+/**
+ * @brief Create a polyline object
+ * 
+ * @param polyline the polyline object
+ * @param element the xml element
+ */
 void create_polyline (Polyline *&polyline, XMLElement *element);
 
+/**
+ * @brief parser a points string in a vector of points
+ * 
+ * @param points the string points for parsee
+ * @return std::vector<POINT> 
+ */
 std::vector<POINT> parser_many_points (std::string points);
 
 #endif
