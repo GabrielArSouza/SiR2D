@@ -72,6 +72,7 @@ Each tag is composed by required and optional settings. If a required setting is
 * Optional settings
 	-  `color`  : The canvas's background color (default: white)
 
+The largest recommended canvas size is 400 x 400
 #### Examples
 
 ~~~~
