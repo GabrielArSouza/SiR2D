@@ -5,7 +5,6 @@
 #include "raster.h"
 #include "line.h"
 #include "circle.h"
-#include "triangle.h"
 #include "xml-parser.h"
 
 

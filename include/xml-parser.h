@@ -10,7 +10,6 @@
 #include "raster.h"
 #include "line.h"
 #include "circle.h"
-#include "triangle.h"
 #include "polyline.h"
 #include <boost/algorithm/string.hpp>
 
