@@ -140,7 +140,6 @@ The largest recommended canvas size is 400 x 400
 * Optional settings
 	-  `stroke` : The Circle's border color (default: black)
 	-  `fill`   : The Circle's fill color (default: white)
-	-  `pcolor` : Define one or more points for use the flood fill algorithm, if not defined, the scan line algorithm be use.
 
 #### Examples
 
@@ -161,7 +160,7 @@ The largest recommended canvas size is 400 x 400
 <!DOCTYPE PLAY SYSTEM play.dtd>
 <scene>
 	<canvas height="200" width="200" color="white"></canvas>
-	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="pink" pcolor="100,100"></shape>
+	<shape type="circle" cx="100" cy="100" r="80" stroke="blue" fill="pink""></shape>
 </scene>	
 ~~~~
 
