@@ -290,4 +290,7 @@ Complex images can be created using all available primitives
 </scene>
 ~~~~
 
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/alvo.png)
+
 ###### © 2019 Souza, Gabriel A. Powered by [TinyXML-2](https://github.com/leethomason/tinyxml2)
