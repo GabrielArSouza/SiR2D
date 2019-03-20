@@ -367,6 +367,6 @@ You can also combine many polylines and form a new image
 ~~~~
 
 ##### Output
-![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/barbiecastle.png)
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/barbieCastle.png)
 
 ###### © 2019 Souza, Gabriel A. Powered by [TinyXML-2](https://github.com/leethomason/tinyxml2)
