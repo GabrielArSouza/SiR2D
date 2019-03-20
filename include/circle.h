@@ -31,10 +31,9 @@ public:
      * @param center   The center point
      * @param radius   the radius of circle
      * @param floodfill  if use floodfill
-     * @param p the vector points for flood fill
      */
     Circle(POINT center = POINT{0,0}, int radius = 0, 
-           bool floodfill = true, std::vector<POINT> p = {POINT{0,0}});
+           bool floodfill = true);
 
     /**
      * @brief Construct a new Circle object
@@ -43,11 +42,9 @@ public:
      * @param radius   the radius of circle
      * @param color    the color of border
      * @param floodfill  if use floodfill
-     * @param p the vector points for flood fill 
      */
     Circle(POINT center, int radius, const Color &color, 
-           bool floodfill = true, std::vector<POINT> p = {POINT{0,0}});
-
+           bool floodfill = true);
 
    /**
      * @brief Construct a new Circle object
@@ -57,10 +54,9 @@ public:
      * @param color    the color of border
      * @param fill     the color fill 
      * @param floodfill  if use floodfill
-     * @param p the vector points for flood fill 
      */
     Circle(POINT center, int radius, const Color &color, const Color &fill, 
-           bool floodfill = true, std::vector<POINT> p = {POINT{0,0}});
+           bool floodfill = true);
 
     /**
      * @brief Destroy the Circle object

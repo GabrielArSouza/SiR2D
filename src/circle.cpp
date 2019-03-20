@@ -4,7 +4,7 @@
  * Constructors
  */
 #include<iostream>
-Circle::Circle(POINT center, int radius, bool floodfill, std::vector<POINT> p) 
+Circle::Circle(POINT center, int radius, bool floodfill) 
     : Shape(Color::BLACK, floodfill, true)
 { 
     this->center = center;
@@ -14,7 +14,7 @@ Circle::Circle(POINT center, int radius, bool floodfill, std::vector<POINT> p)
 }
 
 Circle::Circle(POINT center, int radius, const Color &color, 
-    bool floodfill, std::vector<POINT> p) 
+    bool floodfill) 
     : Shape(color, floodfill, true)
 { 
     this->center = center;
@@ -26,7 +26,7 @@ Circle::Circle(POINT center, int radius, const Color &color,
 
 
 Circle::Circle(POINT center, int radius, const Color &color, 
-    const Color &fill, bool floodfill, std::vector<POINT> p)
+    const Color &fill, bool floodfill)
     :Shape(color, floodfill, true)
 {
     this->center = center;

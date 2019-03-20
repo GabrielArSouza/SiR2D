@@ -129,13 +129,8 @@ void create_circle (Circle *&circle, XMLElement * element )
 		point = element->Attribute("pcolor");
 
 	// Define a basic circle
-	if ( !point.empty() )
-	{
-		std::vector<POINT> u_point = parser_many_points(point);
-		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r), true, u_point);
-	}else {
-		circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r));
-	}
+	circle = new Circle(POINT{std::stoi(cx), std::stoi(cy)}, std::stoi(r), true);
+
 	// -----------------------------------------------
 	// Check and get colors 
 	// -----------------------------------------------
