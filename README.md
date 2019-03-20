@@ -293,4 +293,80 @@ Complex images can be created using all available primitives
 ##### Output
 ![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/alvo.png)
 
+
+You can also combine many polylines and form a new image
+
+#### Example
+~~~~
+<?xml version=\"1.0\"?>
+<!DOCTYPE PLAY SYSTEM play.dtd>
+<scene>
+
+    <canvas height="400" width="400" color="skyblue"></canvas>
+    <shape type="polyline" 
+        points="320,10 290,10 290,40 240,40 235,30 210,30 210,40 220,40 220,45 210,45 210,55 220,55 220,60"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="220,60 210,60 210,70 220,70 220,75 210,75 210,85"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="210,85 235,85 240,75 290,75 290,90 280,90 280,100 290,100 290,110 280,110 280,120"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="280,120 230,120 230,110 210,110 210,120 220,120 220,130 210,130 210,140 220,140 220,150"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="220,150 210,150 210,160 220,160 220,170 190,170 190,150 110,200 190,250 190,230 220,230"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="220,230 220,240 210,240 210,250 220,250 220,260 210,260 210,270 220,270 220,280, 210,280"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="210,280 210,290 230,290 230,280 280,280 280,290 290,290 290,300 280,300 280,310 290,310"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="290,310 290,325 240,325 235,315 210,315 210,325 220,325 220,330 210,330 210,340 220,340 220,345"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="220,345 210,345 210,355 220,355 220,360 210,360 210,370 235,370 240,360 290,360 290,390 320,390"
+        stroke="black" 
+	polygon="false">
+    </shape>
+    <shape type="polyline" 
+        points="320,390 320,350 280,350 280,335 320,335 320,230 270,230 270,170 320,170 320,65 280,65 280,50 320,50 320,10"
+        stroke="black"
+        fill="pink"
+        pcolor="310,15" 
+	polygon="true">
+    </shape>
+    <shape type="polyline" 
+        points="321,1 321,400 400,400 400,1 321,1"
+        stroke="black"
+        fill="boldgreen"
+        pcolor="330,15" 
+	polygon="true">
+    </shape>
+
+</scene>
+~~~~
+
+##### Output
+![alt text](https://github.com/GabrielArSouza/SiR2D/blob/master/common/barbiecastle.png)
+
 ###### © 2019 Souza, Gabriel A. Powered by [TinyXML-2](https://github.com/leethomason/tinyxml2)
