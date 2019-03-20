@@ -229,16 +229,16 @@ Complex images can be created using all available primitives
 
 	<canvas height="400" width="400" color="white"></canvas>
 	
-	<shape type="circle" cx="100" cy="200" r="100" stroke="black"></shape>
-	<shape type="circle" cx="100" cy="200" r="90" stroke="black"></shape>
-	<shape type="circle" cx="100" cy="200" r="80" stroke="black" fill="black"></shape>
-	<shape type="circle" cx="100" cy="200" r="70" stroke="white" fill="black"></shape>
-	<shape type="circle" cx="100" cy="200" r="60" stroke="white" fill="skyblue"></shape>
-	<shape type="circle" cx="100" cy="200" r="50" stroke="black" fill="skyblue"></shape>
-	<shape type="circle" cx="100" cy="200" r="40" stroke="black" fill="red"></shape>
-	<shape type="circle" cx="100" cy="200" r="30" stroke="black" fill="red"></shape>
-	<shape type="circle" cx="100" cy="200" r="20" stroke="black" fill="yellow"></shape>
-	<shape type="circle" cx="100" cy="200" r="10" stroke="black" fill="yellow"></shape>
+	<shape type="circle" cx="110" cy="200" r="100" stroke="black"></shape>
+	<shape type="circle" cx="110" cy="200" r="90" stroke="black"></shape>
+	<shape type="circle" cx="110" cy="200" r="80" stroke="black" fill="black"></shape>
+	<shape type="circle" cx="110" cy="200" r="70" stroke="white" fill="black"></shape>
+	<shape type="circle" cx="110" cy="200" r="60" stroke="white" fill="skyblue"></shape>
+	<shape type="circle" cx="110" cy="200" r="50" stroke="black" fill="skyblue"></shape>
+	<shape type="circle" cx="110" cy="200" r="40" stroke="black" fill="red"></shape>
+	<shape type="circle" cx="110" cy="200" r="30" stroke="black" fill="red"></shape>
+	<shape type="circle" cx="110" cy="200" r="20" stroke="black" fill="yellow"></shape>
+	<shape type="circle" cx="110" cy="200" r="10" stroke="black" fill="yellow"></shape>
 
 	<!-- body -->
 	<shape type="polyline" points="225,160 225,240 320,240 320,160 225,160"
